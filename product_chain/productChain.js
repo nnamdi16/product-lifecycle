@@ -2,31 +2,65 @@ class ProductChain {
     constructor(product) {
         this.product = product;
     }
-    createProductChannel(type) {
-        let productChannel;
-        if (type === "Producer") {
-            productChannel = new Producer();
-        } else if (type === "Retailer") {
-            productChannel = new Retailer();
-        } else if (type === "Consumer") {
-            productChannel = new Consumer();
-        } else if (type === "Recycler") {
-            productChannel = new Recycler();
-        }
-
-        // productChannel.type = type;
-
-        return productChannel;
+    createProductChannel(){
+            const productChannel = this.makeChannel();
+            productChannel.createChannel();
+    }
 
 
+}
+
+class Producer {
+    createChannel() {
+        console.log('I am a producer');
     }
 }
 
-let producer = new ProductChain();
-let firstProducer = producer.createProductChannel({
-    type: "Producer"
-});
+class Retailer {
+    createChannel() {
+        console.log('I am a retailer');
+    }
+}
 
-console.log(firstProducer instanceof ProductChain);
+class Consumer {
+    createChannel () {
+        console.log('I am a consumer');
+    }
+}
 
-module.exports = ProductChain;
+class Recycler {
+    createChannel () {
+        console.log('I am a recycler');
+    }
+}
+
+class ProductManager extends ProductChain {
+    makeChannel () {
+        return new Producer();
+    }
+}
+
+class RetailerManager extends ProductChain {
+    makeChannel () {
+        return new Retailer();
+    }
+}
+
+class ConsumerManager extends ProductChain {
+    makeChannel () {
+        return new Consumer();
+    }
+}
+
+class RecyclerManager extends ProductChain {
+    makeChannel () {
+        return new Recycler();
+    }
+}
+
+const devProducer = new ProductManager();
+devProducer.createProductChannel();
+
+const devRetailer = new RetailerManager();
+devRetailer.createProductChannel();
+module.exports = ProductManager;
