@@ -1,3 +1,5 @@
+
+
 class ProductChain {
     constructor(product) {
         this.product = product;
@@ -10,11 +12,6 @@ class ProductChain {
 
 }
 
-class Producer {
-    createChannel() {
-        console.log('I am a producer');
-    }
-}
 
 class Retailer {
     createChannel() {
@@ -34,11 +31,11 @@ class Recycler {
     }
 }
 
-class ProductManager extends ProductChain {
-    makeChannel () {
-        return new Producer();
-    }
-}
+// class ProductManager extends ProductChain {
+//     makeChannel () {
+//         return new Producer();
+//     }
+// }
 
 class RetailerManager extends ProductChain {
     makeChannel () {
@@ -58,9 +55,10 @@ class RecyclerManager extends ProductChain {
     }
 }
 
-const devProducer = new ProductManager();
-devProducer.createProductChannel();
+// const devProducer = new ProductManager();
+// devProducer.createProductChannel();
 
 const devRetailer = new RetailerManager();
 devRetailer.createProductChannel();
-module.exports = ProductManager;
+// module.exports = ProductManager;
+module.exports = ProductChain;
