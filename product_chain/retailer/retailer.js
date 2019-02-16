@@ -1,16 +1,18 @@
+const fs  = require('fs');
 const ProductChain = require('../productChain');
 const Consumer = require('../consumer/consumer');
-class Retailer extends ProductChain{
+class Retailer {
     constructor(productChain) {
         this.productChain = productChain;
     }
     go() {
         let output = 'Product moved from Retailer to Consumer';
-        fs.writeFile('../data/output-file.txt',output,(err) => {
+        fs.appendFile('../data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
-            console.log('Product processed from Retailer!');
+            console.log('Product processed from Retailer to Consumer!');
+            return;
         });
-        productChain.nextState(new Consumer(productChain));
+        this.productChain.nextState(new Consumer(productChain));
         
     }
 }

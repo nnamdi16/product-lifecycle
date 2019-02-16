@@ -16,7 +16,7 @@ class Producer {
             console.log('Product processed from Retailer!');
             return;
         });
-        productChain.nextState(new Retailer(productChain));
+        this.productChain.nextState(new Retailer(productChain));
         
     }
     // createChannel() {

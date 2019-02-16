@@ -26,7 +26,7 @@ class Consumer {
             console.log('Product processed from Consumer!');
             return;
         });
-        productChain.this.productChannel.nextState(new Recycler(productChain));
+        this.productChain.nextState(new Recycler(productChain));
         
     }
     // createChannel () {
