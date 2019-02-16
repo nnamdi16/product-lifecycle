@@ -19,25 +19,26 @@ class ReadFile {
                 if (!(reg.test(array[i])) && !(space.test(array[i]))) {
                     let result = array[i].split(" ");
                     productArray.push(result);
+                    let len = result.length;
+                    if(len === 3) {
+                        const productChain  = new ProductChain(`${result[0]} ${result[1]}, ${result[2]}`);
+                        productChain.start();
+                    } else if (len === 2) {
+                       const productChain = new ProductChain(`${result[0]} ${result[1]}, Producer`);
+                       productChain.start();
+                    }
                     // console.log(productArray);
                 }
                     // console.log(productArray);
-                 let len = result.length;
-                 if(len === 3) {
-                     const productChain  = new ProductChain(`${result[0]} ${result[1]}, ${result[2]}`);
-                     productChain.start();
-                 } else if (len === 2) {
-                    const productChain = new ProductChain(`${result[0]} ${result[1]}, Producer`);
-                    productChain.start();
-                 }
+                 
             }
             
         });
         
     }
 }
-//  const readFile = new ReadFile();
-//  readFile.read();
+ const readFile = new ReadFile();
+ readFile.read();
 
 module.exports = ReadFile;
 
