@@ -1,21 +1,32 @@
+const fs = require('fs');
 const ProductChain = require('../productChain');
 const Recycler = require('../recycler/recycler');
-const fs = require('fs');
+
 // let lyrics = 'I am reading a book';
+// const content = 'Some content!';
 
+// fs.appendFile('../data/output-file.txt', '\n'+ content, (err) => {
+//   if (err) {
+//     console.error(err);
+//     return;
+//   }
+//   //done!
+// });
 
-class Consumer extends ProductChain {
+class Consumer {
     constructor(productChain){
         this.productChain = productChain;
+        this.productChannel = new ProductChain();
     }
     
     go() {
         let output = 'Product moved from Consumer to Recycler';
-        fs.writeFile('../data/output-file.txt',output,(err) => {
+        fs.appendFile('../data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
             console.log('Product processed from Consumer!');
+            return;
         });
-        productChain.nextState(new Recycler(productChain));
+        productChain.this.productChannel.nextState(new Recycler(productChain));
         
     }
     // createChannel () {
