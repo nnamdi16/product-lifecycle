@@ -1,6 +1,6 @@
 class ProductState {
     constructor() {
-        this.states = [new PendingState(), new ResolvedState()];
+        this.states = [new ProducerState(), new RetailerState(), new ConsumerState(), new RecyclerState()];
         this.current = this.states[0];
     }
 
@@ -22,7 +22,7 @@ class Position {
     }
 }
 
-class PendingState extends Position {
+class ProducerState extends Position {
     constructor() {
         super('pending');
     }
@@ -32,7 +32,7 @@ class PendingState extends Position {
     }
 }
 
-class ResolvedState extends Position {
+class RetailerState extends Position {
     constructor() {
         super('resolved');
     }
@@ -42,13 +42,38 @@ class ResolvedState extends Position {
     }
 }
 
-const productState = new ProductState();
-console.log('productState: ', productState);
+class ConsumerState extends Position {
+    constructor() {
+        super('resolved');
+    }
 
-console.log(productState.productMove());
-productState.change();
+    productMove() {
+        return 'RESOLVED';
+    }
+}
 
-console.log(productState.productMove());
+class RecyclerState extends Position {
+    constructor() {
+        super('resolved');
+    }
+
+    productMove() {
+        return 'RESOLVED';
+    }
+}
+
+// const productState = new ProductState();
+// console.log('productState: ', productState);
+
+// console.log(productState.productMove());
+// productState.change();
+// // productState.change();
+// console.log(productState.productMove());
 
 module.exports = ProductState;
 
+// productState:  ProductState {
+//     states:
+//      [ PendingState { position: 'pending' },
+//        ResolvedState { position: 'resolved' } ],
+//     current: PendingState { position: 'pending' } }
