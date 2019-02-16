@@ -1,9 +1,11 @@
 const fs = require('fs');
-// let lyrics = 'I am reading a book';
+let lyrics = 'I am reading a sed der fa';
 const Producer = require('./producer/producer');
 const Retailer = require('./retailer/retailer');
 const Consumer = require('./consumer/consumer');
 const Recycler = require('./recycler/recycler');
+
+
 // fs.writeFile('../data/output-file.txt',lyrics,(err) => {
 //     if(err) throw err;
 //     console.log('Lyrics Saved!');
