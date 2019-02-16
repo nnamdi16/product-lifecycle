@@ -1,0 +1,5 @@
+class ProductShipment {
+    constructor() {
+        
+    }
+}

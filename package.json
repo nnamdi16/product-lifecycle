@@ -1,0 +1,28 @@
+{
+  "name": "product-lifecycle",
+  "version": "1.0.0",
+  "description": "An automated flow process where goods go from one stage to the other in real time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nnamdi16/product-lifecycle.git"
+  },
+  "keywords": [
+    "Producer",
+    "Retailer",
+    "and",
+    "Consumer"
+  ],
+  "author": "Nwabuokei Nnamdi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nnamdi16/product-lifecycle/issues"
+  },
+  "homepage": "https://github.com/nnamdi16/product-lifecycle#readme",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
