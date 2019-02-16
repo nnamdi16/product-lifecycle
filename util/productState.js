@@ -1,6 +1,8 @@
+
 class ProductState {
-    constructor() {
+    constructor(product) {
         this.states = [new ProducerState(), new RetailerState(), new ConsumerState(), new RecyclerState()];
+        this.product = product;
         this.current = this.states[0];
     }
 
@@ -24,41 +26,41 @@ class Position {
 
 class ProducerState extends Position {
     constructor() {
-        super('pending');
+        super('producer');
     }
 
     productMove() {
-        return 'PENDING';
+        console.log('Moved good to the producer');
     }
 }
 
 class RetailerState extends Position {
     constructor() {
-        super('resolved');
+        super('retailer');
     }
 
     productMove() {
-        return 'RESOLVED';
+        return 'Moved good to the Retailer';
     }
 }
 
 class ConsumerState extends Position {
     constructor() {
-        super('resolved');
+        super('consumer');
     }
 
     productMove() {
-        return 'RESOLVED';
+        return 'Moved good to the Consumer';
     }
 }
 
 class RecyclerState extends Position {
     constructor() {
-        super('resolved');
+        super('recycler');
     }
 
     productMove() {
-        return 'RESOLVED';
+        return 'Moved good to the Recycler';
     }
 }
 
