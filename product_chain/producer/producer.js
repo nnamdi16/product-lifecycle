@@ -17,7 +17,7 @@ class ProductManager extends ProductChain {
         });
     }
 
-    sendsProduct() {
+    sendProduct() {
 
     }
 }
