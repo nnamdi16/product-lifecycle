@@ -20,6 +20,7 @@ class ReadFile {
                     let result = array[i].split(" ");
                     productArray.push(result);
                     let len = result.length;
+                    // console.log(`${result[0]} ${result[1]}`);
                     if(len === 3) {
                         const productChain  = new ProductChain(`${result[0]} ${result[1]}, ${result[2]}`);
                         productChain.start();
