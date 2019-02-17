@@ -11,10 +11,22 @@ const Recycler = require('./recycler/recycler');
 //     console.log('Lyrics Saved!');
 // });
 class ProductChain {
-    constructor(product,state) {
+    constructor(product, state) {
         this.product = product;
-        this.currentState = state === 'Producer' ? new Producer(this) : (state === 'Retailer' ? new Retailer(this):(state === 'Consumer' ? new Consumer(this): new Recycler(this))); 
+        
+        if (state === 'Recycler') {
+            this.currentState = new Recycler(this);
+        } else if (state === 'Retailer') {
+            this.currentState = new Retailer(this);
+        } else {
+            this.currentState = new Consumer(this);
+        }
 
+        // } else{
+        //     this.currentState = new Recycler(this);
+        // }
+        // this.currentState = state === 'Producer' ? new Producer(this) : (state === 'Retailer' ? 
+        // new Retailer(this) : new Consumer(this) );
     }
     nextState(state) {
         this.currentState = state;
