@@ -1,9 +1,10 @@
 const fs  = require('fs');
 const ProductChain = require('../productChain');
 const Consumer = require('../consumer/consumer');
+const readFile = require('../../data/readData');
 class Retailer {
-    constructor(productChain) {
-        this.productChain = productChain;
+    constructor(readFile) {
+        this.readFile = readFile;
     }
     go() {
         let output = 'Product moved from Retailer to Consumer';
@@ -12,7 +13,7 @@ class Retailer {
             console.log('Product processed from Retailer to Consumer!');
             return;
         });
-        this.productChain.nextState(new Consumer(productChain));
+        this.readFile.nextState(new Consumer(readFile));
         
     }
 }
