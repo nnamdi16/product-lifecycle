@@ -1,22 +1,24 @@
 const fs = require('fs');
 const ProductChain = require('../productChain');
 const Retailer = require('../retailer/retailer');
+const readFile = require('../../data/readData');
+const Consumer = require('../consumer/consumer');
 // const producerStation = require('../../data/producerStation');
 // const producerMove = require('../../data/producerMove');
 // const ProductState = require('../../util/productState');
 class Producer {
-    constructor(productChain) {
-        this.productChain = productChain;
-        this.productChannel = new ProductChain();
+    constructor(readFile) {
+        this.readFile = readFile;
+        
     }
     go() {
-        let output = 'Product moved from Producer to Retailer';
+        let output = `Product moved from Producer to Retailer`;
         fs.appendFile('../data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
-            console.log('Product processed from Retailer!');
+            console.log('Product processed from Producer!');
             return;
         });
-        this.productChain.nextState(new Retailer(productChain));
+        this.readFile.nextState(new Retailer(readFile));
         
     }
     // createChannel() {
