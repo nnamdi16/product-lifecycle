@@ -1,7 +1,7 @@
 const fs = require('fs');
 const ProductChain = require('../productChain');
 const Recycler = require('../recycler/recycler');
-const readFile = require('../../data/readData');
+const readFile = require('../entry_point/readData');
 const Producer = require('../producer/producer');
 
 // let lyrics = 'I am reading a book';
@@ -21,7 +21,7 @@ class Consumer {
         // this.productChannel = new ProductChain();
     }
     
-    go() {
+    move() {
         let output = `Product moved from Consumer to Recycler`;
         fs.appendFile('../data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
