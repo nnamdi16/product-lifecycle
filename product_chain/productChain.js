@@ -1,5 +1,5 @@
 const fs = require('fs');
-let lyrics = 'I am reading a sed der fa';
+
 const Producer = require('./producer/producer');
 const Retailer = require('./retailer/retailer');
 const Consumer = require('./consumer/consumer');
@@ -30,11 +30,11 @@ class ProductChain {
     }
     nextState(state) {
         this.currentState = state;
-        this.currentState.go(this.product);
+        this.currentState.move(this.product);
         return true;
     }
     start() {
-        this.currentState.go(this.product);
+        this.currentState.move(this.product);
         return true;
     }
     // createProductChannel(){
