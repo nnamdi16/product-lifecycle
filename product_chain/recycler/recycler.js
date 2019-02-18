@@ -1,17 +1,17 @@
 let fs = require('fs');
 const ProductChain = require('../productChain');
 const Producer = require('../producer/producer');
-const readFile = require('../../data/readData');
-const Product = require('../producer/product');
+const readFile = require('../entry_point/readData');
+
 class Recycler  {
     constructor(readFile) {
         this.readFile = readFile;
         // this.product = product;
         
     }
-    go() {
+    move() {
         let output = `Product moved from Recycler to Producer`;
-        fs.appendFile('../data/output-file.txt','\n' + output,(err) => {
+        fs.appendFile('../data/output-file','\n' + output,(err) => {
             if(err) throw err;
             console.log('Product processed from Recycler!');
             return;
