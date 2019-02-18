@@ -1,9 +1,9 @@
 const ProductChain = require('../productChain');
-let fs = require('fs');
+const fs = require('fs');
 class ReadFile {
 
     read() {
-        fs.readFile('../../data/product-Input.txt', 'utf-8', function (err, contents) {
+        fs.readFile('./product-Input.txt', 'utf-8', function (err, contents) {
             let productArray = [];
             if (err) throw err;
             let array = contents.toString().split("\n");
@@ -20,12 +20,14 @@ class ReadFile {
                     let result = array[i].split(" ");
                     productArray.push(result);
                     let len = result.length;
-                    // console.log(`${result[0]} ${result[1]}`);
+                    let prop = `${result[0]} ${result[1]}`;
+                    let state = `${result[2]}`;
+                    // console.log(`${result[0]} ${result[1]} ${result[2]}`);
                     if(len === 3) {
-                        const productChain  = new ProductChain(`${result[0]} ${result[1]}, ${result[2]}`);
+                        const productChain  = new ProductChain(prop, state);
                         productChain.start();
                     } else if (len === 2) {
-                       const productChain = new ProductChain(`${result[0]} ${result[1]}, Producer`);
+                       const productChain = new ProductChain(prop, 'Producer');
                        productChain.start();
                     }
                     // console.log(productArray);
