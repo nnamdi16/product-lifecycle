@@ -13,13 +13,15 @@ const Recycler = require('./recycler/recycler');
 class ProductChain {
     constructor(product, state) {
         this.product = product;
-        
-        if (state === 'Recycler') {
-            this.currentState = new Recycler(this);
+        this.state = state;
+        if (state === 'Producer') {
+            this.currentState = new Producer(this);
         } else if (state === 'Retailer') {
             this.currentState = new Retailer(this);
-        } else {
+        } else if(state === 'Consumer'){
             this.currentState = new Consumer(this);
+        } else {
+            this.currentState = new Recycler(this);
         }
 
         // } else{
@@ -35,20 +37,11 @@ class ProductChain {
     }
     start() {
         this.currentState.move(this.product);
+        // console.log(this.product);
         return true;
     }
-    // createProductChannel(){
-    //         const productChannel = this.makeChannel();
-    //         productChannel.createChannel();
-    // }
-
-    // moveProduct () {
-    //     return this.product;
-    // }
 
 
 }
-// const productChain = new ProductChain('Calista Na');
-// console.log(productChain);
-// module.exports = ProductManager;
+
 module.exports = ProductChain;
