@@ -1,9 +1,9 @@
-const ProductChain = require('../product_chain/');
+const ProductChain = require('../product_cycle/product_chain/productChain');
 const fs = require('fs');
 class ExecuteOperation {
 
     execute() {
-        fs.readFile('./product-Input.txt', 'utf-8', function (err, contents) {
+        fs.readFile('../data/product-Input.txt', 'utf-8', function (err, contents) {
             let productArray = [];
             if (err) throw err;
             let array = contents.toString().split("\n");
@@ -65,10 +65,10 @@ class ExecuteOperation {
         
     }
 }
- const readFile = new ExecuteOperation();
- readFile.execute();
+ const executeOperation = new ExecuteOperation();
+ executeOperation.execute();
 
-module.exports = ReadFile;
+module.exports = ExecuteOperation;
 
 console.log('after calling readFile');
 
