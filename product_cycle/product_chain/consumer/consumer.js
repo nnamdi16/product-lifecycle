@@ -17,7 +17,7 @@ class Consumer {
             console.log(`${prop} Product processed from Consumer!`);
             return;
         });
-        this.executeOperation.nextState(new Recycler(prop));
+        this.executeOperation.nextState(new Recycler(this));
         
     }
     
