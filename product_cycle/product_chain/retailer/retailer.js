@@ -2,17 +2,17 @@ const fs  = require('fs');
 
 const ProductChain = require('../productChain');
 const Consumer = require('../consumer/consumer');
-const readFile = require('../entry_point/readData');
+const ExecuteOperation = require('../../app');
 const Producer = require('../producer/producer');
 class Retailer {
-    constructor(products) {
-        this.products = products;
+    constructor(executeOperation) {
+        this.executeOperation = executeOperation;
 
     }
     move(prop) {
 
         let output = `${prop} Product moved from Retailer to Consumer`;
-        fs.appendFile('../entry_point/output-file.txt','\n' + output,(err) => {
+        fs.appendFile('../../../data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
             console.log(`${prop} Product processed from Retailer to Consumer!`);
             return;
