@@ -1,7 +1,7 @@
 //Import productChain class from productChain.js
 // const ProductManager = require('../product_chain/producer/producer');
 const ProductChain = require('./productChain');
-const readFile = require('./entry_point/readData');
+const ExecuteOperation = require('../../product_cycle/app');
 
 
 
