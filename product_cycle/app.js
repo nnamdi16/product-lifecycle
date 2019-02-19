@@ -3,7 +3,7 @@ const fs = require('fs');
 class ExecuteOperation {
 
     execute() {
-        fs.readFile('../data/product-Input.txt', 'utf-8', function (err, contents) {
+        fs.readFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/product-Input.txt', 'utf-8', function (err, contents) {
             let productArray = [];
             if (err) throw err;
             let array = contents.toString().split("\n");

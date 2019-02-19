@@ -12,12 +12,12 @@ class Consumer {
     
     move(prop) {
         let output = `${prop} Product moved from Consumer to Recycler`;
-        fs.appendFile('../../../data/output-file.txt','\n' + output,(err) => {
+        fs.appendFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
             console.log(`${prop} Product processed from Consumer!`);
             return;
         });
-        // this.executeOperation.nextState(new Recycler(readFile));
+        this.executeOperation.nextState(new Recycler(prop));
         
     }
     

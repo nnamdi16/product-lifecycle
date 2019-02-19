@@ -11,7 +11,7 @@ class Recycler  {
     }
     move(prop) {
         let output = `${prop} Product moved from Recycler to Producer`;
-        fs.appendFile('../../../data/output-file.txt','\n' + output,(err) => {
+        fs.appendFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
             console.log(`${prop} Product processed from Recycler!`);
             return;

@@ -12,13 +12,13 @@ class Retailer {
     move(prop) {
 
         let output = `${prop} Product moved from Retailer to Consumer`;
-        fs.appendFile('../../../data/output-file.txt','\n' + output,(err) => {
+        fs.appendFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
             console.log(`${prop} Product processed from Retailer to Consumer!`);
             return;
         });
         
-        // this.readFile.nextState(new Consumer(readFile));
+        // this.executeOperation.nextState(new Consumer(prop));
         
     }
 }
