@@ -1,8 +1,8 @@
 const ProductChain = require('../product_chain/');
 const fs = require('fs');
-class ReadFile {
+class ExecuteOperation {
 
-    read() {
+    execute() {
         fs.readFile('./product-Input.txt', 'utf-8', function (err, contents) {
             let productArray = [];
             if (err) throw err;
@@ -65,8 +65,8 @@ class ReadFile {
         
     }
 }
- const readFile = new ReadFile();
- readFile.read();
+ const readFile = new ExecuteOperation();
+ readFile.execute();
 
 module.exports = ReadFile;
 
