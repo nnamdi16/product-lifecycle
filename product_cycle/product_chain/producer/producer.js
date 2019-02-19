@@ -18,7 +18,7 @@ class Producer {
             console.log(`${prop} Product processed from Producer!`);
             return;
         });
-        this.executeOperation.nextState(new Retailer(prop));
+        this.executeOperation.nextState(new Retailer(this));
         
     }
  
