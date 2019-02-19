@@ -18,7 +18,7 @@ class Retailer {
             return;
         });
         
-        // this.executeOperation.nextState(new Consumer(prop));
+        // this.executeOperation.nextState(new Consumer(this));
         
     }
 }
