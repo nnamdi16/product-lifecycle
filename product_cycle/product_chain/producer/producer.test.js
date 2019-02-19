@@ -1,34 +1,36 @@
 //Import productChain class from productChain.js
-const ProductManager = require('./producer');
+const Producer = require('./producer');
 const ProductChain = require('../productChain');
+const readFile = require('../entry_point/readData');
+const fs = require('fs');
 
 
 
-const mockProductChannel = jest.fn();
+const mockProducer = jest.fn();
 jest.mock('./producer', () => {
     return jest.fn().mockImplementation(() => {
         return {
-            makeChannel: mockProductChannel
+            move: mockProducer
         };
     });
 });
 
 beforeEach(() => {
-    ProductManager.mockClear();
-    mockProductChannel.mockClear();
+    Producer.mockClear();
+    mockProducer.mockClear();
 });
-describe('Check if the channel called new() on ProductionChain', () => {
-    it('The channel should be able to call new() on ProductChain', () => {
+describe('Check if the state of the productionChain called new() on Producer', () => {
+    it(' should be able to call new() on Producer', () => {
         //Ensure the constructor created the object:
-        const producer = new ProductManager();
+        const producer = new Producer();
         expect(producer).toBeTruthy();
     });
 });
 
-describe('Check', () => {
-    it('We can check if the producer called the class constructor', () => {
-        const producer = new ProductManager();
-        expect(ProductManager).toHaveBeenCalledTimes(1);
+describe('Check if the constructor of the Producer class was called', () => {
+    it('should check if the class constructor was called', () => {
+        const producer = new Producer();
+        expect(Producer).toHaveBeenCalledTimes(1);
     });
 });
 

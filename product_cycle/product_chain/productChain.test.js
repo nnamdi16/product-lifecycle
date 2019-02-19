@@ -1,21 +1,22 @@
 //Import productChain class from productChain.js
 // const ProductManager = require('../product_chain/producer/producer');
 const ProductChain = require('./productChain');
+const ExecuteOperation = require('../../product_cycle/app');
 
 
 
-const mockProductChannel = jest.fn();
+const mockProductChain = jest.fn();
 jest.mock('./productChain', () => {
     return jest.fn().mockImplementation(() => {
         return {
-            createProductChannel: mockProductChannel
+            start: mockProductChain
         };
     });
 });
 
 beforeEach(() => {
     ProductChain.mockClear();
-    mockProductChannel.mockClear();
+    mockProductChain.mockClear();
 });
 describe('Check if the channel called new() on ProductionChain', () => {
     it('The channel should be able to call new() on ProductChain', () => {
@@ -31,6 +32,16 @@ describe('Check', () => {
         expect(ProductChain).toHaveBeenCalledTimes(1);
     });
 });
+
+// it('works', () => {
+//     const produce = new ProductChain('Lucas Menefee', 'Producer');
+//     const result = {
+//         product:'Lucas Menefee',
+//         state: 'Consumer'
+//     }
+//     expect(result).toBe(produce);
+    
+//   });
 // describe('Check', () => {
 //     it('Should create an instance of the ProductChain class', () => {
 //         const product = new ProductChain('Calista Na');
