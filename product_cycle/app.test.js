@@ -1,33 +1,33 @@
-const ReadFile = require('./readData');
+const ExecuteOperation = require('./app');
 const fs = require('fs');
-const productInput = require('../entry_point/product-Input.txt')
+const productInput = require('../data/product-Input.txt');
 
 const mockReadFile = jest.fn();
 jest.mock('fs', () => {
     return jest.fn().mockImplementation(() => {
         return {
-            read: mockReadFile  
+            execute: mockExecuteOperation  
         };
     });
 });
 
 beforeEach(() => {
-    ReadFile.mockClear();
-    mockReadFile.mockClear();
+    ExecuteOperation.mockClear();
+    mockExecuteOperation.mockClear();
 });
 // jest.mock('fs');
 describe('Check if any class called new() on ReadFile', () => {
     it('The channel should be able to call new() on ProductChain', () => {
         //Ensure the constructor created the object:
-        const readFile = new ReadFile();
-        expect(readFile).toBeTruthy();
+        const executeOperation = new ExecuteOperation();
+        expect(executeOperation).toBeTruthy();
     });
 });
 
 describe('Check if the constructor was called', () => {
     it('We can check if the class constructor was called', () => {
-        const readFile = new ReadFile();
-        expect(ReadFile).toHaveBeenCalledTimes(1);
+        const executeOperation = new ExecuteOperation();
+        expect(ExecuteOperation).toHaveBeenCalledTimes(1);
     });
 });
 
