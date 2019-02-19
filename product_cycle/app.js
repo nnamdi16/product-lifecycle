@@ -10,16 +10,16 @@ class ExecuteOperation {
             // console.log(array);
 
              array.forEach(element => {
-               let result = element.replace(/[&\/\\#,+()$~%.'":*?<>{}\t;]/gm, '').replace(/\s\s+/g,'').split(' ');
+               let result = element.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/\t+\r?\n|\r]/gm, ' ').replace(/ +/gm, ' ').split(' ');
             //    return result;
                 let len = result.length;
                     let prop = `${result[0]} ${result[1]}`;
                     let state = `${result[2]}`;
                     // console.log(`${result[0]} ${result[1]} ${result[2]}`);
-                    if(len === 3) {
+                    if(len > 2) {
                         const productChain  = new ProductChain(prop, state);
                         productChain.start();
-                    } else if (len === 2) {
+                    } else if (len === 2 && result[0] !== '' )  {
                        const productChain = new ProductChain(prop, 'Producer');
                        productChain.start();
                     }
