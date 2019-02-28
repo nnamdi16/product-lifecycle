@@ -16,7 +16,7 @@ class Recycler  {
             console.log(`${prop} Product processed from Recycler!`);
             return;
         });
-        // this.readFile.nextState(new Producer(readFile));
+        // this.executeOperation.nextState(new Consumer(this));
         
     }
     
