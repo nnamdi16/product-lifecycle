@@ -4,9 +4,17 @@ class ExecuteOperation {
 
     execute() {
         try {
-            const data = fs.readFileSync()
+            const data = fs.readFileSync('./product-Input.txt','utf8');
+            let array = data.toString().split("\n");
+            array.forEach((element) => {
+                        let result = element.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/\t+\r?\n|\r]/gm, ' ').replace(/ +/gm, ' ');
+                        let input = (/^\s*$/gm).test(result);
+                        if(!input) fs.appendFileSync('./data/productFlow.txt',`${result}\n`);
+                    
+                        console.log(input);
+                    });
         } catch (err) {
-            
+            console.log(err);
         }
         // fs.readFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/product-Input.txt', 'utf-8', function (err, contents) {
         //     let productArray = [];
