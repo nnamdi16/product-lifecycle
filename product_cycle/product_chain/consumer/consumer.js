@@ -16,7 +16,7 @@ class Consumer {
         let output = `${prop} Product moved from Consumer to Recycler`;
         fs.appendFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
-            this.executeOperation.nextState(new main.Recycler(this));
+            new main.Recycler().move(prop);
             console.log(`${prop} Product processed from Consumer!`);
             return;
         });
