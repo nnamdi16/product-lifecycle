@@ -4,16 +4,16 @@ let fs = require('fs');
 // const ExecuteOperation = require('../../app');
 
 class Recycler  {
-    constructor(executeOperation) {
-        this.executeOperation = executeOperation;
-        // this.product = product;
+    constructor() {
+        
+      
         
     }
     async move(prop) {
         let output = `${prop} Product moved from Recycler to Producer`;
         fs.appendFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
-            this.executeOperation.nextState(new main.Producer(this));
+            new main.Producer().move(prop);
             console.log(`${prop} Product processed from Recycler!`);
             return;
         });
