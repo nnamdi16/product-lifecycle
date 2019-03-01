@@ -6,8 +6,7 @@ const fs = require('fs');
 // const Consumer = require('../consumer/consumer');
 
 class Producer {
-    constructor(executeOperation) {
-        this.executeOperation = executeOperation;
+    constructor() {
          
     } 
     async move(prop) {
@@ -16,7 +15,7 @@ class Producer {
         //  console.log(readFile.product);
         fs.appendFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
-            this.executeOperation.nextState(new main.Retailer(this));
+            new main.Retailer().move(prop);
             console.log(`${prop} Product processed from Producer!`);
             return;
         });
