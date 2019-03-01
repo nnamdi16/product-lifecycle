@@ -1,27 +1,17 @@
 const fs = require('fs');
 
-const Producer = require('./producer/producer');
-const Retailer = require('./retailer/retailer');
-const Consumer = require('./consumer/consumer');
-const Recycler = require('./recycler/recycler');
-
-
-// fs.writeFile('../data/output-file.txt',lyrics,(err) => {
-//     if(err) throw err;
-//     console.log('Lyrics Saved!');
-// });
 class ProductChain {
-    constructor(product, state) {
-        this.product = product;
+    constructor(state, product) {
+        this.product = product; 
         this.state = state;
         if (state === 'Producer') {
-            this.currentState = new Producer(this);
+            this.currentState = new main.Producer(this);
         } else if (state === 'Retailer') {
-            this.currentState = new Retailer(this);
+            this.currentState = new main.Retailer(this);
         } else if(state === 'Consumer'){
-            this.currentState = new Consumer(this);
+            this.currentState = new main.Consumer(this);
         } else {
-            this.currentState = new Recycler(this);
+            this.currentState = new main.Recycler(this);
         }
 
         // } else{
@@ -41,7 +31,8 @@ class ProductChain {
         return true;
     }
 
-
 }
 
+
 module.exports = ProductChain;
+const main = require('../main');
