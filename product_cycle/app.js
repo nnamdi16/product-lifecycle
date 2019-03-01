@@ -1,94 +1,36 @@
-const ProductChain = require('../product_cycle/product_chain/productChain');
+
 const fs = require('fs');
 class ExecuteOperation {
 
     execute() {
-        fs.readFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/product-Input.txt', 'utf-8', function (err, contents) {
-            let productArray = [];
-            if (err) throw err;
-            let array = contents.toString().split("\n");
-            // console.log(array);
+        try {
+            const data = fs.readFileSync('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/productFlow.txt','utf8');
+            let array = data.trim().split('\n');
+            for (let i = 0, len = array.length; i < len; i++) {
+                let product = (array[i].split(' '));
+                let prop = `${i} ${product[0]} ${product[1]}`;
+                let state = `${product[2]}`;
+                if(product.length === 3) {
+                    const productChain = new main.ProductChain(state,prop);
+                    productChain.start();
+                    
+                } else{
+                    const productChain = new main.ProductChain('Producer',prop);
+                    productChain.start();
 
-             array.forEach(element => {
-               let result = element.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/\t+\r?\n|\r]/gm, ' ').replace(/ +/gm, ' ').split(' ');
-            //    return result;
-                let len = result.length;
-                    let prop = `${result[0]} ${result[1]}`;
-                    let state = `${result[2]}`;
-                    // console.log(`${result[0]} ${result[1]} ${result[2]}`);
-                    if(len > 2) {
-                        const productChain  = new ProductChain(prop, state);
-                        productChain.start();
-                    } else if (len === 2 && result[0] !== '' )  {
-                       const productChain = new ProductChain(prop, 'Producer');
-                       productChain.start();
-                    }
-                // console.log(result);
-            });
-            // for (let i in array) {
-            //     let reg = /[&\/\\#,+()$~%.'":*?<>{}\t]/g;
-            //     let space = /\s\s+/g;
-            //     let result = array[i].replace(reg, '').replace(space,'').split('');
-            //     console.log(result);
-            //     // let len = result.length;
-            //     //     let prop = `${result[0]} ${result[1]}`;
-            //     //     let state = `${result[2]}`;
-            //     //     // console.log(`${result[0]} ${result[1]} ${result[2]}`);
-            //     //     if(len === 3) {
-            //     //         const productChain  = new ProductChain(prop, state);
-            //     //         productChain.start();
-            //     //     } else if (len === 2) {
-            //     //        const productChain = new ProductChain(prop, 'Producer');
-            //     //        productChain.start();
-            //     //     }
-            //     // if (!(reg.test(array[i])) && !(space.test(array[i]))) {
-            //     //     let result = array[i].split(" ");
-            //     //     productArray.push(result);
-            //     //     let len = result.length;
-            //     //     let prop = `${result[0]} ${result[1]}`;
-            //     //     let state = `${result[2]}`;
-            //     //     // console.log(`${result[0]} ${result[1]} ${result[2]}`);
-            //     //     if(len === 3) {
-            //     //         const productChain  = new ProductChain(prop, state);
-            //     //         productChain.start();
-            //     //     } else if (len === 2) {
-            //     //        const productChain = new ProductChain(prop, 'Producer');
-            //     //        productChain.start();
-            //     //     }
-            //     //     // console.log(productArray);
-            //     // }
-            //         // console.log(productArray);
-                 
-            // }
+                    
+                }
+            }
             
-        });
+        } catch (err) {
+            console.log(err);
+        }
         
     }
 }
- const executeOperation = new ExecuteOperation();
- executeOperation.execute();
-
+ 
 module.exports = ExecuteOperation;
+const main = require('../product_cycle/main');
 
 console.log('after calling readFile');
 
-// class Run {
-//     start() {
-//         fs.readFileSync('./product-Input.txt', 'utf8').split('\n').forEach(line => {
-//             let data = line.replace(/[^\w\s]/gm, '').replace(/\s\s+/gm, ' ').split(' ');
-//             // const len = data.length;
-//             // if (len === 3) {
-//             //     const factory = new Factory(data[0] + ' ' + data[1], data[2]);
-//             //     factory.start();
-//             // } else if (len == 2) {
-//             //     const factory = new Factory(data[0] + ' ' + data[1], 'Product');
-//             //     factory.start();
-//             // }
-//             console.log(data);
-//         });
-        
-//     }
-// }
-
-// let run = new Run();
-// run.start();
