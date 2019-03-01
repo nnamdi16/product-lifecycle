@@ -5,29 +5,19 @@ class ProductChain {
         this.product = product; 
         this.state = state;
         if (state === 'Producer') {
-            this.currentState = new main.Producer(this);
+            this.currentState = new main.Producer();
         } else if (state === 'Retailer') {
-            this.currentState = new main.Retailer(this);
+            this.currentState = new main.Retailer();
         } else if(state === 'Consumer'){
-            this.currentState = new main.Consumer(this);
+            this.currentState = new main.Consumer();
         } else {
-            this.currentState = new main.Recycler(this);
+            this.currentState = new main.Recycler();
         }
 
-        // } else{
-        //     this.currentState = new Recycler(this);
-        // }
-        // this.currentState = state === 'Producer' ? new Producer(this) : (state === 'Retailer' ? 
-        // new Retailer(this) : new Consumer(this) );
     }
-    nextState(state) {
-        this.currentState = state;
-        this.currentState.move(this.product);
-        return true;
-    }
+
     start() {
         this.currentState.move(this.product);
-        // console.log(this.product);
         return true;
     }
 
