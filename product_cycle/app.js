@@ -13,15 +13,11 @@ class ExecuteOperation {
                 if(product.length === 3) {
                     const productChain = new main.ProductChain(state,prop);
                     productChain.start();
-                    // productChain.productFlow();
-                    // let flow = productChain.productFlow();
-                    // flow.next();
                     
                 } else{
                     const productChain = new main.ProductChain('Producer',prop);
                     productChain.start();
-                    // let flow = productChain.productFlow();
-                    // flow.next();
+
                     
                 }
             }
