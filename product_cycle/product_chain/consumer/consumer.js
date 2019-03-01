@@ -1,8 +1,10 @@
 const fs = require('fs');
-const ProductChain = require('../productChain');
-const Recycler = require('../recycler/recycler');
-const ExecuteOperation = require('../../app');
-const Producer = require('../producer/producer');
+
+// const ProductChain = require('../productChain');
+// const Recycler = require('../recycler/recycler');
+// const ExecuteOperation = require('../../app');
+// const Producer = require('../producer/producer');
+
 
 
 class Consumer {
@@ -10,18 +12,19 @@ class Consumer {
         this.executeOperation = executeOperation;
     }
     
-    move(prop) {
+    async move(prop) {
         let output = `${prop} Product moved from Consumer to Recycler`;
         fs.appendFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {
             if(err) throw err;
+            this.executeOperation.nextState(new main.Recycler(this));
             console.log(`${prop} Product processed from Consumer!`);
             return;
         });
-        // this.executeOperation.nextState(new Recycler(this));
+
         
     }
     
 }
 
-
 module.exports = Consumer;
+const main = require('../../main');
