@@ -10,7 +10,7 @@ class Producer {
          
     } 
     async move(prop) {
-        let that = this;
+        
         let output = `${prop} Product moved from Producer to Retailer`;
         //  console.log(readFile.product);
         fs.appendFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {

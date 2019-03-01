@@ -10,9 +10,12 @@ class ProductChain {
             this.currentState = new main.Retailer();
         } else if(state === 'Consumer'){
             this.currentState = new main.Consumer();
-        } else {
+        } else if(state === 'Retailer'){
             this.currentState = new main.Recycler();
+        }else{
+
         }
+
 
     }
 
