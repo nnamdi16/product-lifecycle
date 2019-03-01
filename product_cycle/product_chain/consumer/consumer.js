@@ -8,8 +8,8 @@ const fs = require('fs');
 
 
 class Consumer {
-    constructor(executeOperation){
-        this.executeOperation = executeOperation;
+    constructor(){
+        
     }
     
     async move(prop) {
