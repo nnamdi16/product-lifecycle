@@ -10,6 +10,7 @@ class ExecuteOperation {
                 let product = (array[index].split(' '));
                 let prop = `${index} ${product[0]} ${product[1]}`;
                 let state = `${product[2]}`;
+                console.log(prop);
                 if(product.length === 3) {
                     const productChain = new main.ProductChain(state,prop);
                     productChain.start();
@@ -19,8 +20,8 @@ class ExecuteOperation {
                     const productChain = new main.ProductChain('Producer',prop);
                     productChain.start();
 
-                    
                 }
+                
             }
             
         } catch (err) {
@@ -30,7 +31,7 @@ class ExecuteOperation {
     }
     
 }
- 
+
 module.exports = ExecuteOperation;
 const main = require('../product_cycle/main');
 
