@@ -1,16 +1,7 @@
 const fs = require('fs');
 
-// const ProductChain = require('../productChain');
-// const Recycler = require('../recycler/recycler');
-// const ExecuteOperation = require('../../app');
-// const Producer = require('../producer/producer');
-
-
-
 class Consumer {
-    constructor(){
-        
-    }
+    constructor(){  }
     
     async move(prop) {
         let output = `${prop} Product moved from Consumer to Recycler`;

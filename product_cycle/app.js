@@ -10,8 +10,8 @@ class ExecuteOperation {
                 let product = (array[index].split(' '));
                 let prop = `${index} ${product[0]} ${product[1]}`;
                 let state = `${product[2]}`;
-                console.log(prop);
-                if(product.length === 3 && state != '') {
+                // console.log(product);
+                if(product.length === 3 && state !== '') {
                     const productChain = new main.ProductChain(state,prop);
                     productChain.start();
                    

@@ -1,14 +1,7 @@
 let fs = require('fs');
-// const ProductChain = require('../productChain');
-// const Producer = require('../producer/producer');
-// const ExecuteOperation = require('../../app');
 
 class Recycler  {
-    constructor() {
-        
-      
-        
-    }
+    constructor() { }
     async move(prop) {
         let output = `${prop} Product moved from Recycler to Producer`;
         fs.appendFile('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {
@@ -17,8 +10,7 @@ class Recycler  {
             console.log(`${prop} Product processed from Recycler!`);
             return;
         });
-        
-        
+         
     }
     
 }

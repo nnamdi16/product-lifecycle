@@ -1,8 +1,6 @@
 const fs  = require('fs');
 class Retailer {
-    constructor() {
-        
-    }
+    constructor() {   }
     async move(prop) {
 
         let output = `${prop} Product moved from Retailer to Consumer`;
@@ -14,5 +12,6 @@ class Retailer {
         });
     }
 }
+
 module.exports = Retailer;
 const main = require('../../main');
