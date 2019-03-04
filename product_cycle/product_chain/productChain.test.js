@@ -1,9 +1,8 @@
 //Import productChain class from productChain.js
-// const ProductManager = require('../product_chain/producer/producer');
-const ProductChain = require('./productChain');
-const ExecuteOperation = require('../../product_cycle/app');
+const fs = require('../../__mocks__/fs');
+const main = require('../../product_cycle/main');
 
-
+jest.mock('fs');
 
 const mockProductChain = jest.fn();
 jest.mock('./productChain', () => {
@@ -15,21 +14,31 @@ jest.mock('./productChain', () => {
 });
 
 beforeEach(() => {
-    ProductChain.mockClear();
+    main.ProductChain.mockClear();
     mockProductChain.mockClear();
 });
 describe('Check if the channel called new() on ProductionChain', () => {
     it('The channel should be able to call new() on ProductChain', () => {
         //Ensure the constructor created the object:
-        const product = new ProductChain();
+        const product = new main.ProductChain();
         expect(product).toBeTruthy();
     });
 });
 
 describe('Check', () => {
     it('We can check if the producer called the class constructor', () => {
-        const product = new ProductChain();
-        expect(ProductChain).toHaveBeenCalledTimes(1);
+        const product = new main.ProductChain();
+        expect(main.ProductChain).toHaveBeenCalledTimes(1);
+    });
+});
+
+describe("Check if an instance of the productChain class was created", () => {
+    it("Should create an instance of the productChain class", () => {
+      const productChain = new ProductChain('Producer','Calista Na');
+      const result = {
+        name: "Galvin Belson"
+      };
+      expect(admin).toEqual(result);
     });
 });
 
