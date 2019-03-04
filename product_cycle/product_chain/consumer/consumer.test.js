@@ -1,7 +1,6 @@
 //Import productChain class from productChain.js
-const Consumer= require('./consumer');
-const ProductChain = require('../productChain');
-const Recycler = require('../recycler/recycler');
+const fs = require('fs');
+const main = require('../../main');
 
 
 
@@ -15,21 +14,21 @@ jest.mock('./consumer', () => {
 });
 
 beforeEach(() => {
-    Consumer.mockClear();
+    main.Consumer.mockClear();
     mockConsumer.mockClear();
 });
 describe('Check if the state of the productionChain called new() on Consumer', () => {
     it('The channel should be able to call new() on ProductChain', () => {
         //Ensure the constructor created the object:
-        const consumer = new Consumer();
+        const consumer = new main.Consumer();
         expect(consumer).toBeTruthy();
     });
 });
 
 describe('Check if the class constructor was called', () => {
     it('We can check if the class constructor was called', () => {
-        const consumer = new Consumer();
-        expect(Consumer).toHaveBeenCalledTimes(1);
+        const consumer = new main.Consumer();
+        expect(main.Consumer).toHaveBeenCalledTimes(1);
     });
 });
 
