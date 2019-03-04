@@ -1,4 +1,4 @@
-class productChainFactory {
+class ProductChainFactory {
     constructor() {
         this.objConstructors = {};
     }
@@ -14,4 +14,12 @@ class productChainFactory {
     }
 }
 
-module.exports = productChainFactory;
+const productChainFactory = new ProductChainFactory();
+class Producer{
+    
+}
+productChainFactory.register('Producer',Producer);
+productChainFactory.getProductLink('Producer');
+
+console.log(productChainFactory);
+module.exports = ProductChainFactory;
