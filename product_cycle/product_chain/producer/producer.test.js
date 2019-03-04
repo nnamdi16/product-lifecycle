@@ -1,8 +1,6 @@
 //Import productChain class from productChain.js
-const Producer = require('./producer');
-const ProductChain = require('../productChain');
-const readFile = require('../entry_point/readData');
 const fs = require('fs');
+const main = require('../../main');
 
 
 
@@ -16,28 +14,31 @@ jest.mock('./producer', () => {
 });
 
 beforeEach(() => {
-    Producer.mockClear();
+    main.Producer.mockClear();
     mockProducer.mockClear();
 });
 describe('Check if the state of the productionChain called new() on Producer', () => {
     it(' should be able to call new() on Producer', () => {
         //Ensure the constructor created the object:
-        const producer = new Producer();
+        const producer = new main.Producer();
         expect(producer).toBeTruthy();
     });
 });
 
 describe('Check if the constructor of the Producer class was called', () => {
     it('should check if the class constructor was called', () => {
-        const producer = new Producer();
-        expect(Producer).toHaveBeenCalledTimes(1);
+        const producer = new main.Producer();
+        expect(main.Producer).toHaveBeenCalledTimes(1);
     });
 });
 
+// describe('fs module test', () => {
+//     const mockProductAppended = `Calista Na Product processed from Producer`;
+//     beforeEach(() =>{
+//         require('../../../__mocks__/fs');
+//     });
+//     it('It appended the exact product when the method move is called', () =>{
+//         const producer = require('../producer/producer');
 
-// it('We can check if the producer called a method on the class instance', () => {
-//     const producer = new ProductManager();
-//     const channelCreate = 'I am a producer';
-//     producer.createProductChannel();
-//     expect(mockProductChannel.mock.calls[0][0]).toEqual(channelCreate);
-// });
+//     });
+// })
