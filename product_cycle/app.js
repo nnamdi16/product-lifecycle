@@ -33,7 +33,7 @@ class ExecuteOperation {
 }
 
 module.exports = ExecuteOperation;
-const main = require('../product_cycle/main');
+const main = require('./main');
 
 console.log('after calling readFile');
 
