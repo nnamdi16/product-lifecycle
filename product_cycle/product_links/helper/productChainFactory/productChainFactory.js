@@ -1,3 +1,4 @@
+const main = require('../../../main');
 class ProductChainFactory {
     constructor() {
         this.objConstructors = {};
@@ -13,13 +14,16 @@ class ProductChainFactory {
         return member;
     }
 }
-
+//Instantiated the productChain Factory that generates objects depending on the state change category.
 const productChainFactory = new ProductChainFactory();
-class Producer{
-    
-}
-productChainFactory.register('Producer',Producer);
-productChainFactory.getProductLink('Producer');
 
-console.log(productChainFactory);
-module.exports = ProductChainFactory;
+
+//Register the various state class category.
+productChainFactory.register('Producer',main.Producer);
+productChainFactory.register('Retailer',main.Retailer);
+productChainFactory.register('Consumer',main.Consumer);
+productChainFactory.register('Recycler',main.Recycler);
+// console.log(productChainFactory);
+
+module.exports.productChainFactory = productChainFactory;
+module.exports.ProductChainFactory = ProductChainFactory;
