@@ -1,41 +1,28 @@
-//Import productChain class from productChain.js
+
 const fs = require('fs');
-const main = require('../../main');
+const Consumer = require('./consumer');
+const transfer = require('../helper/moveProduct/moveProduct');
 
-
-
-const mockConsumer= jest.fn();
-jest.mock('./consumer', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            move: mockConsumer
-        };
+describe("Check if the instance of the consumer class is created",() => {
+    it("Should create an instance of Consumer class",() => {
+        const consumer = new Consumer();
+        const result = {};
+        expect(consumer).toEqual(result);
     });
+  
+    it("Check if the Object created is an instance of the Consumer  Constructor", () => {
+        const consumer = new Consumer();
+        expect(consumer).toBeInstanceOf(Consumer);
+      });
+
+    
 });
 
-beforeEach(() => {
-    main.Consumer.mockClear();
-    mockConsumer.mockClear();
-});
-describe('Check if the state of the productionChain called new() on Consumer', () => {
-    it('The channel should be able to call new() on ProductChain', () => {
-        //Ensure the constructor created the object:
-        const consumer = new main.Consumer();
-        expect(consumer).toBeTruthy();
-    });
-});
+// const consumer = new Consumer();
 
-describe('Check if the class constructor was called', () => {
-    it('We can check if the class constructor was called', () => {
-        const consumer = new main.Consumer();
-        expect(main.Consumer).toHaveBeenCalledTimes(1);
-    });
-});
+//     test(`move 'test' to equal 'TEST'`,() =>{
+//         return consumer.move('test').then((state,prop) =>{
+//             expect((state,prop)).toBe('TEST');
+//         });
+//     });
 
-
-// it('We can check if the producer called a method on the class instance', () => {
-//     const producer = new ProductManager();
-//     const channelCreate = 'I am a producer';
-//     producer.createProductChannel();
-//     expect(mockProductChannel.mock.calls[0][0]).toEqual(channelCreate);
-// });

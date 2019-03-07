@@ -1,68 +1,36 @@
-//Import productChain class from productChain.js
-const fs = require('../../../../__mocks__/fs');
-const main = require('../../../main');
 
-jest.mock('fs');
+const fs = require('fs');
+const ProductChain = require('./productChain');
+const factory = require('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/product_links/helper/productChainFactory/productChainFactory.js')
+// const transfer = require('../helper/moveProduct/moveProduct');
 
-const mockProductChain = jest.fn();
-jest.mock('./productChain', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            start: mockProductChain
-        };
+describe("Check if the instance of the productChain class is created",() => {
+    it("Should create an instance of the productChain class",() => {
+        const productChain = new ProductChain();
+        const result = {};
+        expect(productChain).toEqual(result);
     });
-});
+  
+    it("Check if the Object created is an instance of the Consumer  Constructor", () => {
+        const productChain = new ProductChain();
+        expect(productChain).toBeInstanceOf(ProductChain);
+      });
 
-beforeEach(() => {
-    main.ProductChain.mockClear();
-    mockProductChain.mockClear();
-});
-describe('Check if the channel called new() on ProductionChain', () => {
-    it('The channel should be able to call new() on ProductChain', () => {
-        //Ensure the constructor created the object:
-        const product = new main.ProductChain();
-        expect(product).toBeTruthy();
-    });
-});
-
-describe('Check', () => {
-    it('We can check if the producer called the class constructor', () => {
-        const product = new main.ProductChain();
-        expect(main.ProductChain).toHaveBeenCalledTimes(1);
-    });
-});
-
-describe("Check if an instance of the productChain class was created", () => {
-    it("Should create an instance of the productChain class", () => {
-      const productChain = new ProductChain('Producer','Calista Na');
-      const result = {
-        name: "Galvin Belson"
-      };
-      expect(admin).toEqual(result);
-    });
-});
-
-// it('works', () => {
-//     const produce = new ProductChain('Lucas Menefee', 'Producer');
-//     const result = {
-//         product:'Lucas Menefee',
-//         state: 'Consumer'
-//     }
-//     expect(result).toBe(produce);
     
-//   });
-// describe('Check', () => {
-//     it('Should create an instance of the ProductChain class', () => {
-//         const product = new ProductChain('Calista Na');
-//         const result = {'product':'Calista Na'};
-//         expect(product).toEqual(result);
+});
+
+
+test(`move 'test' to equal 'TEST'`,(done) =>{
+    const productChain = new ProductChain();
+    productChain.start('test',(state,prop) => {
+        expect((state,prop)).toBe('TEST');
+        done();
+    });
+});
+      
+//       const result = {
+//           'Producer' : {},
+//       };
+//       expect(result).toEqual(method);
 //     });
-// });
-
-
-// it('We can check if the producer called a method on the class instance', () => {
-//     const producer = new ProductManager();
-//     const channelCreate = 'I am a producer';
-//     producer.createProductChannel();
-//     expect(mockProductChannel.mock.calls[0][0]).toEqual(channelCreate);
-// });
+//   });

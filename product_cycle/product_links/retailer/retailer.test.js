@@ -1,41 +1,37 @@
-//Import productChain class from productChain.js
+
 const fs = require('fs');
-const main = require('../../main');
+const Retailer = require('./retailer');
+const transfer = require('../helper/moveProduct/moveProduct');
 
+describe("Check if the instance of the producer class is created",() => {
+    it("Should create an instance of the Producer class",() => {
+        const retailer = new Retailer();
+        const result = {};
+        expect(retailer).toEqual(result);
+    });
+  
+    it("Check if the Object created is an instance of the Consumer  Constructor", () => {
+        const retailer = new Retailer();
+        expect(retailer).toBeInstanceOf(Retailer);
+      });
 
+    
+});
 
-const mockRetailer = jest.fn();
-jest.mock('./retailer', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            move: mockRetailer
-        };
+test(`move 'test' to equal 'TEST'`,(done) =>{
+    const retailer = new Retailer();
+    consumer.move('test',(state,prop) => {
+        expect((state,prop)).toBe('TEST');
+        done();
     });
 });
 
-beforeEach(() => {
-    main.Retailer.mockClear();
-    mockRetailer.mockClear();
-});
-describe('Check if the state of the productionChain called new() on Retailer', () => {
-    it(' should be able to call new() on Retailer', () => {
-        //Ensure the constructor created the object:
-        const retailer = new main.Retailer();
-        expect(retailer).toBeTruthy();
-    });
-});
-
-describe('Check if the constructor of the Retailer class was called', () => {
-    it('should check if the class constructor was called', () => {
-        const retailer = new main.Retailer();
-        expect(main.Retailer).toHaveBeenCalledTimes(1);
-    });
-});
-
-
-// it('We can check if the producer called a method on the class instance', () => {
-//     const producer = new ProductManager();
-//     const channelCreate = 'I am a producer';
-//     producer.createProductChannel();
-//     expect(mockProductChannel.mock.calls[0][0]).toEqual(channelCreate);
-// });
+// describe("Move product from the state specified to the next state", () => {
+//     it("Should create an array of object showing the product moved from one state to the other", () => {
+//       const consumer = new Consumer();
+//       let method = consumer.move('Producer','Calista Na');
+      
+//       const result = {};
+//       expect(method).toEqual(`Calista Na Product moved from Producer to Retailer`);
+//     });
+//   });

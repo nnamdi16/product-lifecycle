@@ -1,46 +1,51 @@
-// const fs = require('../__mocks__/fs');
-const fs = require('../__mocks__/fs');
-const main = require('../product_cycle/main');
 
-jest.mock('fs');
+const fs = require('fs');
+const ExecuteOperation = require('./app');
+const Product = require('../product_cycle/app');
 
-
-const mockExecuteOperation= jest.fn();
-jest.mock('../product_cycle/app.js', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            execute: mockExecuteOperation  
-        };
+describe("Check if the instance of the ExecuteOperation class is created",() => {
+    it("Should create an instance of the ExecuteOperation class",() => {
+        const executeOperation = new ExecuteOperation();
+        const result = {};
+        expect(executeOperation).toEqual(result);
     });
+  
+    it("Check if the Object created is an instance of the Consumer  Constructor", () => {
+        const executeOperation = new ExecuteOperation();
+        expect(executeOperation).toBeInstanceOf(ExecuteOperation);
+      });
+
+    
 });
 
-beforeEach(() => {
-    main.ExecuteOperation.mockClear();
-    mockExecuteOperation.mockClear();
-});
-// jest.mock('fs');
-describe('Check if any class called new() on ReadFile', () => {
-    it('The channel should be able to call new() on ProductChain', () => {
-        //Ensure the constructor created the object:
-        const executeOperation = new main.ExecuteOperation();
-        expect(executeOperation).toBeTruthy();
-    });
-});
+// describe("Executes the movement of the product from one product link to the other ", () => {
+//     it("Should move product from one product link to the other ", () => {
+    
+//       const executeMovement  = new ExecuteOperation();
+//       console.log(executeMovement.execute());
 
-describe('Check if the constructor was called', () => {
-    it('We can check if the class constructor was called', () => {
-        const executeOperation = new main.ExecuteOperation();
-        expect(main.ExecuteOperation).toHaveBeenCalledTimes(1);
-    });
-});
-
-// afterAll(() => {
-//     mockReadFile.mockClear().restore();
+      
+//       expect(executeMovement.execute()).toEqual(main.Producer);
+//     });
 //   });
 
+//   describe("Executes the movement of the product from one product link to the other  ", () => {
+//     it("Should move product from one product link to the other ", () => {
+    
+//       const producerChain  = new ProductChainFactory.ProductChainFactory();
+//       producerChain.register('Producer', main.Producer);
+//       producerChain.getProductLink('Producer');
+//       console.log(producerChain);
 
-it('We can check if the producer called a method on the class instance', () => {
-    const executeOperation = new main.ExecuteOperation();
-    let result = executeOperation.execute();
-    expect(result).toEqual(`Calista Na Product processed from Producer`);
-});
+//       expect(producerChain.objConstructors['Producer']).toEqual(main.Producer);
+//     });
+
+//     it("Should  not create an object containing the classes", () => {
+    
+//         const producerChain  = new ProductChainFactory.ProductChainFactory();
+//         producerChain.register('Producer', main.Producer);
+//         producerChain.getProductLink('Retailer');
+  
+//         expect(producerChain.objConstructors['Retailer']).not.toEqual(main.Producer);
+//       });
+//   });

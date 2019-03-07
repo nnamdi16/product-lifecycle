@@ -1,44 +1,37 @@
-//Import productChain class from productChain.js
+
 const fs = require('fs');
-const main = require('../../main');
+const Producer = require('./producer');
+const transfer = require('../helper/moveProduct/moveProduct');
 
+describe("Check if the instance of the producer class is created",() => {
+    it("Should create an instance of the Producer class",() => {
+        const producer = new Producer();
+        const result = {};
+        expect(producer).toEqual(result);
+    });
+  
+    it("Check if the Object created is an instance of the Consumer  Constructor", () => {
+        const producer = new Producer();
+        expect(producer).toBeInstanceOf(Producer);
+      });
 
+    
+});
 
-const mockProducer = jest.fn();
-jest.mock('./producer', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            move: mockProducer
-        };
+test(`move 'test' to equal 'TEST'`,(done) =>{
+    const producer = new Producer();
+    consumer.move('test',(state,prop) => {
+        expect((state,prop)).toBe('TEST');
+        done();
     });
 });
 
-beforeEach(() => {
-    main.Producer.mockClear();
-    mockProducer.mockClear();
-});
-describe('Check if the state of the productionChain called new() on Producer', () => {
-    it(' should be able to call new() on Producer', () => {
-        //Ensure the constructor created the object:
-        const producer = new main.Producer();
-        expect(producer).toBeTruthy();
-    });
-});
-
-describe('Check if the constructor of the Producer class was called', () => {
-    it('should check if the class constructor was called', () => {
-        const producer = new main.Producer();
-        expect(main.Producer).toHaveBeenCalledTimes(1);
-    });
-});
-
-// describe('fs module test', () => {
-//     const mockProductAppended = `Calista Na Product processed from Producer`;
-//     beforeEach(() =>{
-//         require('../../../__mocks__/fs');
+// describe("Move product from the state specified to the next state", () => {
+//     it("Should create an array of object showing the product moved from one state to the other", () => {
+//       const consumer = new Consumer();
+//       let method = consumer.move('Producer','Calista Na');
+      
+//       const result = {};
+//       expect(method).toEqual(`Calista Na Product moved from Producer to Retailer`);
 //     });
-//     it('It appended the exact product when the method move is called', () =>{
-//         const producer = require('../producer/producer');
-
-//     });
-// })
+//   });
