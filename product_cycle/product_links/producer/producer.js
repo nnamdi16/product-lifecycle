@@ -10,13 +10,13 @@ class Producer {
     }
 
 
-    isLast(state,prop) {
-        if (state === 'Producer' && prop === '18599 Rosetta Fagen') {
-            // throw new Error('Product Cycle Completed ' + prop);
-            return;
-        }
+    // isLast(state,prop) {
+    //     if (state === 'Producer' && prop === '18599 Rosetta Fagen') {
+    //         // throw new Error('Product Cycle Completed ' + prop);
+    //         return;
+    //     }
 
-    }
+    // }
 
 }
 

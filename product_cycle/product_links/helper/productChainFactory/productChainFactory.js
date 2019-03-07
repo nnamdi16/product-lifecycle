@@ -42,5 +42,8 @@ productChainFactory.register('Retailer', main.Retailer);
 productChainFactory.register('Consumer', main.Consumer);
 productChainFactory.register('Recycler', main.Recycler);
 
+// let output =productChainFactory.getProductLink('Producer');
+// console.log(output);
+
 module.exports.productChainFactory = productChainFactory;
 module.exports.ProductChainFactory = ProductChainFactory;

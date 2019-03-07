@@ -1,4 +1,3 @@
-const fs = require('fs');
 const transfer = require('../helper/moveProduct/moveProduct');
 class Consumer  {
     constructor() {}
