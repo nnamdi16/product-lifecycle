@@ -1,45 +1,39 @@
-// const path = require('../product_cycle/app');
+let db = {};
 
-// // jest.mock('../product_cycle/data/productFlow.txt','utf8',() => () =>({
-   
-// // }));
-
-// const fs = jest.mock('fs');
-// const output = `Calista Na Product processed from Producer`;
-let appendFile = ('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/output-file.txt','\n' + output,(err) => {
-    if(err) throw err;
-    return output;
-});
-
-
-let readFileSync =('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/productFlow.txt','utf8');
+let appendFile =  (filePath,data,callback) => {
+    if(!callback) throw new Error('Callback Unavailable');
+    if(!db[filePath]) {
+        db[filePath] = data;
+    } else{
+        db[filePath] = db[filePath] + data;
+    }
+    let err;
+    callback(err);
+};
 
 
-fs.readFileSync = readFileSync;
-fs.appendFile = appendFile;
-
-module.exports = fs;
-
-
-
-// let mockFiles = Object.create(null);
-// function __setMockFiles(newMockFiles) {
-//     mockFiles = Object.create(null);
-//     for (const file in newMockFiles) {
-//         const dir = path.dirname(file);
-
-//         if(!mockFiles[dir]) {
-//             mockFiles[dir] = [];
-//         }
-//         mockFiles[dir].push(path.basename(file));
-//     }
-// }
-
-// function readdirSync(directoryPath) {
-//     return mockFiles[directoryPath] || [];
-// }
-
-// fs.__setMockFiles = __setMockFiles;
-// fs.readdirSync = readdirSync;
-
-// module.exports = fs;
+let unlinkSync = (filePath) => {
+    if (!db[filePath]) {
+          throw new Error('File to Unlink Unavailable');
+      } else {
+          delete db[filePath];
+    }
+  
+  };
+  
+  let readFileSync = (filePath, option) => {
+    if (!db[filePath]) {
+          throw new Error('File to read Unavailable');
+      } else {
+          return db[filePath];
+    }
+  };
+  
+  exports.appendFile = appendFile;
+  exports.unlinkSync = unlinkSync;
+  exports.readFileSync = readFileSync;
+  // {
+  //  append: fu
+  // }
+  
+  // fs.append
