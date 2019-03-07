@@ -18,10 +18,8 @@ class ExecuteOperation {
 					count++;
 					let prop = `${count} ${product[0]} ${product[1]}`;
 					let state = `${product[2]}`;
-					// console.log(product);
 					if (product.length === 3) {
 						const productChain = new ProductChain(state, prop);
-						// console.log(productChain);
 						productChain.start();
 					} else {
 						const productChain = new ProductChain('Producer', prop);
@@ -29,16 +27,8 @@ class ExecuteOperation {
 					}
 				}
 
-				// let stop = output.trim().split('\n');
-
-				// output[index].trim().split('\n');
-				// console.log(output);
 			}
-			// array.forEach((element) => {
-
-			//             let input = (/^\s*$/gm).test(result);
-			//             if(!input) fs.appendFileSync('./productFlow.txt',`${result}\n`);
-			//         });
+			
 		} catch (err) {
 			console.log(err);
 		}
@@ -46,8 +36,7 @@ class ExecuteOperation {
 
 }
 
-const executeOperation = new ExecuteOperation();
-executeOperation.execute();
+
 module.exports = ExecuteOperation;
 const main = require('../product_cycle/main');
 

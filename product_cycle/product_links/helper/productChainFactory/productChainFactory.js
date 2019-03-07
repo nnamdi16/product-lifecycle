@@ -19,7 +19,6 @@ class ProductChainFactory {
         let objLength = Object.keys(obj).length;
         let keys = Object.keys(obj),
         index = keys.indexOf(state), nextState,nextStateClass;
-        // console.log('Index',index);
         if (index !== -1 && index < objLength - 1 ) {
             nextState = (keys[index + 1]);
             nextStateClass = (obj[keys[index + 1]]);
@@ -42,15 +41,6 @@ productChainFactory.register('Producer', main.Producer);
 productChainFactory.register('Retailer', main.Retailer);
 productChainFactory.register('Consumer', main.Consumer);
 productChainFactory.register('Recycler', main.Recycler);
-// console.log('ProductChain Factory',productChainFactory);
-// let check = productChainFactory.getProductLink('Recycler');
-// console.log('Check',check);
-// let result = productChainFactory.getNextProductLink(productChainFactory, 'Recycler');
-// console.log('Result',result);
-// // console.log('Result[0]',result[0]);
-// console.log(result[0]);
-// console.log(result[1]);
+
 module.exports.productChainFactory = productChainFactory;
-// console.log(module.exports.productChainFactory);
 module.exports.ProductChainFactory = ProductChainFactory;
-// console.log(module.exports.ProductChainFactory);
