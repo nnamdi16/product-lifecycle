@@ -4,5 +4,6 @@ const main = require('./product_cycle/main');
 
 
 const executeOperation = new main.ExecuteOperation();
+
 executeOperation.execute();
 

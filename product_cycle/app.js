@@ -1,4 +1,5 @@
 const fs = require('fs');
+const ProductChain = require('../product_cycle/product_links/helper/productChain/productChain');
 class ExecuteOperation {
 	execute() {
 		try {
@@ -19,10 +20,11 @@ class ExecuteOperation {
 					let state = `${product[2]}`;
 					// console.log(product);
 					if (product.length === 3) {
-						const productChain = new main.ProductChain(state, prop);
+						const productChain = new ProductChain(state, prop);
+						// console.log(productChain);
 						productChain.start();
 					} else {
-						const productChain = new main.ProductChain('Producer', prop);
+						const productChain = new ProductChain('Producer', prop);
 						productChain.start();
 					}
 				}
@@ -42,35 +44,10 @@ class ExecuteOperation {
 		}
 	}
 
-	// execute() {
-	//     try {
-	//         const data = fs.readFileSync('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/productFlow.txt','utf8');
-	//         let array = data.trim().split('\n');
-	//         console.log(data);
-	//         for (let index = 0, len = array.length; index < len; index++) {
-	//             let product = (array[index].split(' '));
-	//             let prop = `${index} ${product[0]} ${product[1]}`;
-	//             let state = `${product[2]}`;
-	//             // console.log(product);
-	//             if(product.length === 3 && state !== '') {
-	//                 const productChain = new main.ProductChain(state,prop);
-	//                 productChain.start();
-
-	//             } else{
-	//                 const productChain = new main.ProductChain('Producer',prop);
-	//                 productChain.start();
-
-	//             }
-
-	//          }
-
-	//     } catch (err) {
-	//         console.log(err);
-	//     }
-
-	// }
 }
 
+const executeOperation = new ExecuteOperation();
+executeOperation.execute();
 module.exports = ExecuteOperation;
 const main = require('../product_cycle/main');
 
