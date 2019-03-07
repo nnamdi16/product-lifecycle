@@ -1,6 +1,7 @@
 const fs = require('fs');
 const ProductChain = require('../product_cycle/product_links/helper/productChain/productChain');
 class ExecuteOperation {
+	constructor() {}
 	execute() {
 		try {
 			const data = fs.readFileSync(
