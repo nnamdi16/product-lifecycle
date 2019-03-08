@@ -1,6 +1,6 @@
 const fs = require('fs');
-const transfer = require('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/product_links/helper/moveProduct/moveProduct.js');
-
+const transfer = require('../../helper/moveProduct/moveProduct');
+// const observer = require('product_cycle/data/output-file.txt')
 class Producer {
     constructor() {}
 
