@@ -1,7 +1,7 @@
 const observer = {
     check: null,
-    write: '../../data/output-file.txt',
-    read: '../../data/product-Input.txt'
+    write: 'product_cycle/data/output-file.txt',
+    read: 'product_cycle/data/product-Input.txt'
 };
 
 
