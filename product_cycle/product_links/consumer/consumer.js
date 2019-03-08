@@ -1,4 +1,4 @@
-const transfer = require('../helper/moveProduct/moveProduct');
+const transfer = require('../../helper/moveProduct/moveProduct');
 class Consumer  {
     constructor() {}
 
