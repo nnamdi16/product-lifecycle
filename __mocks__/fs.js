@@ -32,8 +32,3 @@ let unlinkSync = (filePath) => {
   exports.appendFile = appendFile;
   exports.unlinkSync = unlinkSync;
   exports.readFileSync = readFileSync;
-  // {
-  //  append: fu
-  // }
-  
-  // fs.append
