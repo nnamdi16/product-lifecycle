@@ -28,9 +28,3 @@ test(`move 'test' to equal 'TEST'`,(done) =>{
     });
 });
       
-//       const result = {
-//           'Producer' : {},
-//       };
-//       expect(result).toEqual(method);
-//     });
-//   });
