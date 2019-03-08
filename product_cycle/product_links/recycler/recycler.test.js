@@ -1,7 +1,7 @@
 
 const fs = require('fs');
 const Recycler = require('./recycler');
-const transfer = require('../helper/moveProduct/moveProduct');
+const transfer = require('../../helper/moveProduct/moveProduct');
 
 describe("Check if the instance of the recycler class is created",() => {
     it("Should create an instance of the Recycler class",() => {
@@ -20,7 +20,7 @@ describe("Check if the instance of the recycler class is created",() => {
 
 test(`move 'test' to equal 'TEST'`,(done) =>{
     const recycler = new Recycler();
-    consumer.move('test',(state,prop) => {
+    recycler.move('test',(state,prop) => {
         expect((state,prop)).toBe('TEST');
         done();
     });

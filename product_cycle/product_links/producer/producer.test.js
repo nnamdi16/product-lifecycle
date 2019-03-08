@@ -1,7 +1,7 @@
 
 const fs = require('fs');
 const Producer = require('./producer');
-const transfer = require('../helper/moveProduct/moveProduct');
+const transfer = require('../../helper/moveProduct/moveProduct');
 
 describe("Check if the instance of the producer class is created",() => {
     it("Should create an instance of the Producer class",() => {
@@ -20,7 +20,7 @@ describe("Check if the instance of the producer class is created",() => {
 
 test(`move 'test' to equal 'TEST'`,(done) =>{
     const producer = new Producer();
-    consumer.move('test',(state,prop) => {
+    producer.move('test',(state,prop) => {
         expect((state,prop)).toBe('TEST');
         done();
     });
