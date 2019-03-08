@@ -3,9 +3,9 @@ const ProductChain = require('./helper/productChain/productChain');
 const observer = require('./helper/observable/observable').observer;
 class ExecuteOperation {
 	constructor() {}
-	execute() {
+	execute(url) {
 		try {
-			const data = fs.readFileSync('product_cycle/data/product-Input.txt',
+			const data = fs.readFileSync(url,
 				'utf8'
 			);
             let array = data.toString().split('\n');
