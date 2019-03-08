@@ -5,5 +5,5 @@ const observer = require('./product_cycle/helper/observable/observable').observe
 
 const executeOperation = new ExecuteOperation();
 // executeOperation.execute(observer.read);
-executeOperation.execute();
+executeOperation.execute(observer.read);
 
