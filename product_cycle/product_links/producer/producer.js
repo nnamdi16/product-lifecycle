@@ -1,11 +1,11 @@
-const fs = require('fs');
+
 const transfer = require('../../helper/moveProduct/moveProduct');
-// const observer = require('product_cycle/data/output-file.txt')
+const observer = require('../../helper/observable/observable').observer;
 class Producer {
     constructor() {}
 
     move(state,prop) {
-        transfer.moveProduct.moveOutput(state,prop);
+        transfer.moveProduct.moveOutput(state,prop,observer.write);
         
     }
 
