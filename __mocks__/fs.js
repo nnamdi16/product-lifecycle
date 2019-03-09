@@ -1,10 +1,10 @@
 let db = {};
 
-let appendFile =  (filePath,data,callback) => {
-    if(!callback) throw new Error('Callback Unavailable');
-    if(!db[filePath]) {
+let appendFile = (filePath, data, callback) => {
+    if (!callback) throw new Error('Callback Unavailable');
+    if (!db[filePath]) {
         db[filePath] = data;
-    } else{
+    } else {
         db[filePath] = db[filePath] + data;
     }
     let err;
@@ -14,21 +14,32 @@ let appendFile =  (filePath,data,callback) => {
 
 let unlinkSync = (filePath) => {
     if (!db[filePath]) {
-          throw new Error('File to Unlink Unavailable');
-      } else {
-          delete db[filePath];
+        throw new Error('File to Unlink Unavailable');
+    } else {
+        delete db[filePath];
     }
-  
-  };
-  
-  let readFileSync = (filePath, option) => {
+
+};
+
+let readFileSync = (filePath, option) => {
     if (!db[filePath]) {
-          throw new Error('File to read Unavailable');
-      } else {
-          return db[filePath];
+        throw new Error('File to read Unavailable');
+    } else {
+        return db[filePath];
     }
-  };
-  
-  exports.appendFile = appendFile;
-  exports.unlinkSync = unlinkSync;
-  exports.readFileSync = readFileSync;
+};
+
+let writeFileSync = (filePath, data) => {
+    if (!db[filePath]) {
+        db[filePath] = data;
+    } else {
+        db[filePath] = db[filePath] + data;
+    }
+};
+
+module.exports = {
+    appendFile: appendFile,
+    unlinkSync: unlinkSync,
+    readFileSync: readFileSync,
+    writeFileSync: writeFileSync
+};
