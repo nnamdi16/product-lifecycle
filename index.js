@@ -5,10 +5,11 @@ const observer = require('./product_cycle/helper/observable/observable').observe
 
 
 const executeOperation = new ExecuteOperation();
-const productChain = new ProductChain();
+// const productChain = new ProductChain();
 // executeOperation.execute(observer.read);
-let output = executeOperation.run(observer.read);
-console.log(output);
+executeOperation.execute(observer.read);
+// productChain.start();
+// console.log(output);
 
 // let value = observer.read;
 // console.log(value);
