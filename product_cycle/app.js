@@ -41,7 +41,7 @@ class ExecuteOperation {
 			let counter = index + 1;
 			productObj = {
 				state: `${element[2]}`,
-				prop: `${counter} ${element[0]} ${element[1]}}`
+				prop: `${counter} ${element[0]} ${element[1]}`
 			};
 			return productObj;
 
