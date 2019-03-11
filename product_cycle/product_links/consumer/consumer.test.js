@@ -2,7 +2,7 @@
 const fs = require('fs');
 const Consumer = require('./consumer');
 const transfer = require('../../helper/moveProduct/moveProduct');
-const ExecuteOperation = require('../../app');
+const ExecuteOperation = require('../../helper/productFlow');
 
 //Test case to check if the consumer class was instantiated.
 describe("Check if the instance of the consumer class is created", () => {
