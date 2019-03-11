@@ -10,8 +10,11 @@ class ProductChainFactory {
     getProductLink(state) {
         let objConstructor = this.objConstructors[state];
         let member;
-        if (objConstructor) member = new objConstructor();
-        return member;
+        if (objConstructor){
+            member = new objConstructor();
+            return member;
+        } 
+        
     }
 
     getNextProductLink(obj, state) {
