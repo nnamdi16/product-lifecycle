@@ -18,10 +18,10 @@ describe("Check if the instance of the producer class is created",() => {
     
 });
 
-test(`move 'test' to equal 'TEST'`,(done) =>{
+test(`move 'Producer,Calista Na' to equal 'Calista Na Product moved from Producer to Retailer`,(done) =>{
     const producer = new Producer();
-    producer.move('test',(state,prop) => {
-        expect((state,prop)).toBe('TEST');
+    producer.move('Producer','Lucas Na',(state,prop) => {
+        expect((state,prop)).toBe(`Lucas Na Product moved from Producer to Retailer`);
         done();
     });
 });
