@@ -1,9 +1,14 @@
-module.exports.Consumer = require('../product_cycle/product_chain/consumer/consumer');
-module.exports.Producer = require('../product_cycle/product_chain/producer/producer');
-module.exports.Retailer = require('../product_cycle/product_chain/retailer/retailer');
-module.exports.Recycler = require('../product_cycle/product_chain/recycler/recycler');
-module.exports.ProductChain = require('../product_cycle/product_chain/productChain');
-module.exports.ExecuteOperation = require('../product_cycle/app');
-module.exports.Observable = require('./observable');
-module.exports.ProductChainFactory = require('./product_chain/productChainFactory');
+//Export classes  to  main.js to avoid circular dependency
+module.exports.Consumer = require('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/product_links/consumer/consumer.js');
+module.exports.Producer = require('../product_cycle/product_links/producer/producer');
+module.exports.Retailer = require('../product_cycle/product_links/retailer/retailer');
+module.exports.Recycler = require('../product_cycle/product_links/recycler/recycler');
+module.exports.ProductChain = require('./helper/productChain/productChain');
+module.exports.ExecuteOperation = require('./app');
+module.exports.ProductChainFactory = require('./helper/productChainFactory/productChainFactory');
+module.exports.MoveProduct = require('./helper/moveProduct/moveProduct');
+module.exports.Observable = require('./helper/observable/observable');
+
+
+
  

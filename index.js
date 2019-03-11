@@ -1,12 +1,8 @@
-// const ExecuteOperation = require('./product_cycle/app');
-// const Observable = require('./product_cycle/observable');
-const main = require('./product_cycle/main');
-// // const observable = new Observable();
-// const producer = new main.Producer();
-// let observer = observable.subscribe(producer.isLast);
-// observable.fire('3 Owen Bartkowski');
-// console.log(observable);
+//Import ExecuteOperation class and observer object.
+const ExecuteOperation = require('./product_cycle/app');
+const observer = require('./product_cycle/helper/observable/observable').observer;
 
-const executeOperation = new main.ExecuteOperation();
-executeOperation.execute();
 
+const executeOperation = new ExecuteOperation();
+
+executeOperation.assignState(observer.read);
