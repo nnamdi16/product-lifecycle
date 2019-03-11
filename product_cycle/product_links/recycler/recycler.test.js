@@ -1,8 +1,9 @@
-
+//Import the fs, Recycler class, instance of the moveProduct method and ExecuteOperation class
 const fs = require('fs');
 const Recycler = require('./recycler');
 const transfer = require('../../helper/moveProduct/moveProduct');
 
+//Test case to check if recycler class was instantiated.
 describe("Check if the instance of the recycler class is created",() => {
     it("Should create an instance of the Recycler class",() => {
         const recycler = new Recycler();
@@ -18,6 +19,7 @@ describe("Check if the instance of the recycler class is created",() => {
     
 });
 
+//Test the move method to check the flow of the product from the it states to the next state.
 test(`move 'test' to equal 'TEST'`,(done) =>{
     const recycler = new Recycler();
     recycler.move('test',(state,prop) => {

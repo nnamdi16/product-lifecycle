@@ -1,8 +1,9 @@
-
+//Import the fs, Producer class, instance of the moveProduct method and ExecuteOperation class
 const fs = require('fs');
 const Producer = require('./producer');
 const transfer = require('../../helper/moveProduct/moveProduct');
 
+//Test case to check if producer class was instantiated.
 describe("Check if the instance of the producer class is created",() => {
     it("Should create an instance of the Producer class",() => {
         const producer = new Producer();
@@ -18,6 +19,7 @@ describe("Check if the instance of the producer class is created",() => {
     
 });
 
+//Test the move method to check the flow of the product from the it states to the next state.
 test(`move 'Producer,Calista Na' to equal 'Calista Na Product moved from Producer to Retailer`,(done) =>{
     const producer = new Producer();
     producer.move('Producer','Lucas Na',(state,prop) => {

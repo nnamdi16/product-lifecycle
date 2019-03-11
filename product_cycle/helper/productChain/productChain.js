@@ -1,3 +1,4 @@
+//Import the ProductChainFactory class and productChainFactory instance
 const factory = require('../productChainFactory/productChainFactory');
 
 //Created a productChain class that instantiate a productChain during state change.

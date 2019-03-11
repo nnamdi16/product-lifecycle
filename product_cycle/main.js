@@ -1,4 +1,4 @@
-
+//Export classes  to  main.js to avoid circular dependency
 module.exports.Consumer = require('/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/product_links/consumer/consumer.js');
 module.exports.Producer = require('../product_cycle/product_links/producer/producer');
 module.exports.Retailer = require('../product_cycle/product_links/retailer/retailer');

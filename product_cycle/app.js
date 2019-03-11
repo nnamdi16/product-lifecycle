@@ -1,15 +1,21 @@
-const fs = require('fs');
+//Import fs, ProductChain class and observer object.
+const fs = require('fs'); 
 const ProductChain = require('./helper/productChain/productChain');
 const observer = require('./helper/observable/observable').observer;
-// console.log(observer.check);
+
 let counter = 0;
+//Create an ExecuteOperation class
 class ExecuteOperation {
 	constructor() {}
+
+	//Create an execute method to read the Input file
 	execute(url) {
 		let data = fs.readFileSync(url,
 			'utf8');
 		return data;
 	}
+
+	//removeImpunity method is used to clean the file from impunities
 	removeImpunity(data) {
 		let inputFile = data.split("\n").map(file => {
 			let result = file.replace(/[^\w\s]/gm, "").replace(/\s\s+/gm, " ").trim();
@@ -32,6 +38,7 @@ class ExecuteOperation {
 
 	}
 
+	//Create the assignState method that classifies the output into states and product
 	assignState(url) {
 		let output = this.execute(url);
 		let product = this.removeImpunity(output);
@@ -39,30 +46,24 @@ class ExecuteOperation {
 		for (let index = 0; index < product.length; index++) {
 			let element = product[index].split(' ');
 			let counter = index + 1;
+
+			//Objects that classifies the file into states and product
 			productObj = {
 				state: `${element[2]}`,
-				prop: `${counter} ${element[0]} ${element[1]}`
+				prop: `${counter} ${element[0]} ${element[1]}` 
 			};
 			let productChain = new ProductChain(productObj.state,productObj.prop);
 			productChain.start();
-			// return productObj;
+		
 
 		}
-		observer.check = true;
+		observer.check = true; //A stopper that signals the recycler to end the operation.
 
 	}
 }
 
-// const executeOperation = new ExecuteOperation();
-// // // // let url = 'data/read';
-// let url = '/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/product-Input.txt';
-// let data = executeOperation.execute(url);
-// let output = executeOperation.removeImpunity(data);
-// // console.log(executeOperation.assignState(url));
-// console.log(output);
-// // console.log(executeOperation.execute('./data/product-Input.txt')); 
 
-
+//Export ExecuteOperation Class
 module.exports = ExecuteOperation;
 const main = require('../product_cycle/main');
 
