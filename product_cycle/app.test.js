@@ -3,7 +3,7 @@ const fs = require('fs');
 const ExecuteOperation = require('./app');
 const Product = require('../product_cycle/app');
 
-//Test case to check for the instance of ExecuteOperation calss
+//Test case to check for the instance of ExecuteOperation class
 describe("Check if the instance of the ExecuteOperation class is created", () => {
     it("Should create an instance of the ExecuteOperation class", () => {
         const executeOperation = new ExecuteOperation();
