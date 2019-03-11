@@ -1,25 +1,45 @@
-const path = require('path');
+let db = {};
 
-const fs = jest.genMockFromModule('fs');
-
-let mockFiles = Object.create(null);
-function __setMockFiles(newMockFiles) {
-    mockFiles = Object.create(null);
-    for (const file in newMockFiles) {
-        const dir = path.dirname(file);
-
-        if(!mockFiles[dir]) {
-            mockFiles[dir] = [];
-        }
-        mockFiles[dir].push(path.basename(file));
+let appendFile = (filePath, data, callback) => {
+    if (!callback) throw new Error('Callback Unavailable');
+    if (!db[filePath]) {
+        db[filePath] = data;
+    } else {
+        db[filePath] = db[filePath] + data;
     }
-}
+    let err;
+    callback(err);
+};
 
-function readdirSync(directoryPath) {
-    return mockFiles[directoryPath] || [];
-}
 
-fs.__setMockFiles = __setMockFiles;
-fs.readdirSync = readdirSync;
+let unlinkSync = (filePath) => {
+    if (!db[filePath]) {
+        throw new Error('File to Unlink Unavailable');
+    } else {
+        delete db[filePath];
+    }
 
-module.exports = fs;
+};
+
+let readFileSync = (filePath, option) => {
+    if (!db[filePath]) {
+        throw new Error('File to read Unavailable');
+    } else {
+        return db[filePath];
+    }
+};
+
+let writeFileSync = (filePath, data) => {
+    if (!db[filePath]) {
+        db[filePath] = data;
+    } else {
+        db[filePath] = db[filePath] + data;
+    }
+};
+
+module.exports = {
+    appendFile: appendFile,
+    unlinkSync: unlinkSync,
+    readFileSync: readFileSync,
+    writeFileSync: writeFileSync
+};
