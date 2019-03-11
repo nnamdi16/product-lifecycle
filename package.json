@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/nnamdi16/product-lifecycle#readme",
   "devDependencies": {
-    "jest": "^24.1.0"
+    "jest": "^24.1.0",
+    "jest-cli": "^24.1.0"
   }
 }
