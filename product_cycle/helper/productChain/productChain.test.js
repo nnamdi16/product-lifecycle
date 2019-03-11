@@ -1,9 +1,10 @@
-
+//Import the fs, Consumer class, instance of the moveProduct method and ExecuteOperation class
 const fs = require('fs');
 const ProductChain = require('./productChain');
 const factory = require('../../helper/productChainFactory/productChainFactory');
-// const transfer = require('../helper/moveProduct/moveProduct');
 
+
+//Test case to check if the productChain class is instantiated.
 describe("Check if the instance of the productChain class is created",() => {
     it("Should create an instance of the productChain class",() => {
         const productChain = new ProductChain();

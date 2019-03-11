@@ -1,8 +1,10 @@
+//Import the fs, ProductChainFactory and main class.
 const fs = require('fs');
 const ProductChainFactory = require('./productChainFactory');
 const main = require('../../main');
-// const transfer = require('../helper/moveProduct/moveProduct');
 
+
+//Test case to check if the productChainFactory class is instantiated
 describe("Check if the instance of the productChainFactory class is created", () => {
   it("Should create an instance of the productChainFactory class", () => {
     const productChainFactory = new ProductChainFactory.ProductChainFactory();
@@ -20,7 +22,7 @@ describe("Check if the instance of the productChainFactory class is created", ()
 
 });
 
-
+//Test case to check if the register method registers various product link classes in the factory.
 describe("Register classes ", () => {
   it("Should create an object containing the classes", () => {
 
@@ -31,6 +33,7 @@ describe("Register classes ", () => {
   });
 });
 
+//Test case to check if  getProductLink method creates an instance of the productLink specified
 describe("Get Product link  ", () => {
   it("Should create an object containing the classes", () => {
 
@@ -51,6 +54,7 @@ describe("Get Product link  ", () => {
 });
 
 
+//Check if getProductNextLink method changes the state of the product and instantiates the class
 describe("Get Next product link  ", () => {
   it("Should create an array containing the next state and its next class", () => {
 

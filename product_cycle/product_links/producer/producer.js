@@ -1,6 +1,8 @@
-
+//Import an instance of MoveProduct class and the observer object
 const transfer = require('../../helper/moveProduct/moveProduct');
 const observer = require('../../helper/observable/observable').observer;
+
+//Create  Producer class where products whose states are Consumers are been processed
 class Producer {
     constructor() {}
 
@@ -9,17 +11,8 @@ class Producer {
         
     }
 
-
-    // isLast(state,prop) {
-    //     if (state === 'Producer' && prop === '18599 Rosetta Fagen') {
-    //         // throw new Error('Product Cycle Completed ' + prop);
-    //         return;
-    //     }
-
-    // }
-
 }
 
-
+//Export Producer class
 module.exports = Producer;
-const main = require('../../main');
+const main = require('../../main'); //Import classes in the main file

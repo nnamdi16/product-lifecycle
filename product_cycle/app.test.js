@@ -1,7 +1,9 @@
-const fs = require('fs');
+//Import  fs and ExecuteOperation class.
+const fs = require('fs'); 
 const ExecuteOperation = require('./app');
 const Product = require('../product_cycle/app');
 
+//Test case to check for the instance of ExecuteOperation class
 describe("Check if the instance of the ExecuteOperation class is created", () => {
     it("Should create an instance of the ExecuteOperation class", () => {
         const executeOperation = new ExecuteOperation();
@@ -16,6 +18,8 @@ describe("Check if the instance of the ExecuteOperation class is created", () =>
 
 
 });
+
+//Test case to check if the execute method reads the file based on the url
 describe('Check whether files are read from the directory selected ', () => {
     it('Should check for impunities and remove it ', () => {
         let executeOperation = new ExecuteOperation();
@@ -28,6 +32,7 @@ describe('Check whether files are read from the directory selected ', () => {
 
 });
 
+//Test case to check if the removeImpunity method cleans the impunities in the file.
 describe('Check whether removeImpunity cleans all impunities', () => {
     it('Should check for impunities and remove it ', () => {
         let executeOperation = new ExecuteOperation();
