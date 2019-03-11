@@ -43,9 +43,12 @@ class ExecuteOperation {
 				state: `${element[2]}`,
 				prop: `${counter} ${element[0]} ${element[1]}`
 			};
-			return productObj;
+			let productChain = new ProductChain(productObj.state,productObj.prop);
+			productChain.start();
+			// return productObj;
 
 		}
+		observer.check = true;
 
 	}
 }
