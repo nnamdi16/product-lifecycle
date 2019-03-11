@@ -12,7 +12,7 @@ class MoveProduct {
 
         fs.appendFile(url, '\n' + output, (err) => {
             if (err) throw err;
-            // console.log(output);
+            console.log(output);
             let nextState = factory.productChainFactory.getProductLink(result[0]);
             nextState.move(result[0], prop);
 
