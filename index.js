@@ -7,7 +7,7 @@ const observer = require('./product_cycle/helper/observable/observable').observe
 const executeOperation = new ExecuteOperation();
 // const productChain = new ProductChain();
 // executeOperation.execute(observer.read);
-executeOperation.execute(observer.read);
+executeOperation.assignState(observer.read);
 // productChain.start();
 // console.log(output);
 
