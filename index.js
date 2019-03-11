@@ -1,5 +1,5 @@
 //Import ExecuteOperation class and observer object.
-const ExecuteOperation = require('./product_cycle/app');
+const ExecuteOperation = require('./product_cycle/helper/productFlow');
 const observer = require('./product_cycle/helper/observable/observable').observer;
 
 

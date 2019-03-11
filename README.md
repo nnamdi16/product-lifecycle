@@ -1,5 +1,5 @@
-# PRODUCT LIFECYCLE SIMULATION
-Product lifecycle simulation is a simulation  where goods go from one stage to the other in real time. e.g A product goes from the ​<b>Producer ​</b> to the ​<b>Retailer</b> and​ to the ​<b>Consumer</b> ​and the ​<b>Recycler</b> ​takes the waste from the ​<b>Consumer ​and recycle for the ​<b>Producer</b> ​to use in the next production line​ ​in real time. The <b>Retailer<b> waits for the <b>Producer</b> to produce the goods when they run out of stock so also the <b>Consumer</b> waits for the <b>Retailer</b> to buy from the <b>Producer</b> and the ​<b>Recycler</b> ​waits on the <b>Consumer </b>to recycle. 
+# PRODUCT LIFE CYCLE SIMULATION
+Product life cycle simulation is a simulation  where goods go from one stage to the other in real time. e.g A product goes from the ​<b>Producer ​</b> to the ​<b>Retailer</b> and​ to the ​<b>Consumer</b> ​and the ​<b>Recycler</b> ​takes the waste from the ​<b>Consumer ​and recycle for the ​<b>Producer</b> ​to use in the next production line​ ​in real time. The <b>Retailer<b> waits for the <b>Producer</b> to produce the goods when they run out of stock so also the <b>Consumer</b> waits for the <b>Retailer</b> to buy from the <b>Producer</b> and the ​<b>Recycler</b> ​waits on the <b>Consumer </b>to recycle. 
 Use case scenario for this simulation is the Mineral or Bear bottling production cycle. When any of the above-listed stages run out of resources to execute, It waits for the supplier before it can continue.
 
 

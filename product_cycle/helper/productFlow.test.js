@@ -1,7 +1,7 @@
 //Import  fs and ExecuteOperation class.
 const fs = require('fs'); 
-const ExecuteOperation = require('./app');
-const Product = require('../product_cycle/app');
+const ExecuteOperation = require('./productFlow');
+const Product = require('./productFlow');
 
 //Test case to check for the instance of ExecuteOperation class
 describe("Check if the instance of the ExecuteOperation class is created", () => {
