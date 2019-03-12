@@ -1,7 +1,7 @@
 //Import  fs and ExecuteOperation class.
 const fs = require('fs'); 
 const ExecuteOperation = require('./productFlow');
-const Product = require('./productFlow');
+
 
 //Test case to check for the instance of ExecuteOperation class
 describe("Check if the instance of the ExecuteOperation class is created", () => {
@@ -23,7 +23,7 @@ describe("Check if the instance of the ExecuteOperation class is created", () =>
 describe('Check whether files are read from the directory selected ', () => {
     it('Should check for impunities and remove it ', () => {
         let executeOperation = new ExecuteOperation();
-        let url = 'product_cycle/data/read';
+        let url = '/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/read';
         fs.writeFileSync(url, '///Read Shan Consumer//***');
         executeOperation.execute(url);
         expect(executeOperation.execute(url)).toBe('///Read Shan Consumer//***');
@@ -36,7 +36,7 @@ describe('Check whether files are read from the directory selected ', () => {
 describe('Check whether removeImpunity cleans all impunities', () => {
     it('Should check for impunities and remove it ', () => {
         let executeOperation = new ExecuteOperation();
-        let url = 'product_cycle/data/read';
+        let url = '/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/read';
         let result = ['Read Shan Consumer', 'Sample Read Up'];
         fs.appendFileSync(url, '///Read Shan Consumer\\\\\n\nSample Read Up');
         let data = executeOperation.execute(url);
@@ -47,7 +47,7 @@ describe('Check whether removeImpunity cleans all impunities', () => {
 
     it('Should check for impunities and remove it ', () => {
         let executeOperation = new ExecuteOperation();
-        let url = 'product_cycle/data/read';
+        let url = '/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/read';
         let result = ['Read Shan Producer'];
         fs.writeFileSync(url, '///Read Shan \\\\');
         let data = executeOperation.execute(url);
@@ -62,7 +62,7 @@ describe('Check whether removeImpunity cleans all impunities', () => {
 
 describe('Assigns states to the array of products', () => {
     it('Should assigns states to the array of products without an assigned state', () => {
-        let url = 'product_cycle/data/read';
+        let url = '/Users/nnamdinwabuokei/Documents/Decagon/Institute/checkpoint/product-lifecycle/product_cycle/data/read';
         let executeOperation = new ExecuteOperation();
         fs.writeFileSync(url, '///Read Shan Consumer\\\\');
         let output = executeOperation.assignState(url);

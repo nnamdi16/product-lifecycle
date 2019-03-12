@@ -3,6 +3,7 @@ const fs = require('fs');
 const Producer = require('./producer');
 const transfer = require('../../helper/moveProduct/moveProduct');
 
+
 //Test case to check if producer class was instantiated.
 describe("Check if the instance of the producer class is created",() => {
     it("Should create an instance of the Producer class",() => {
