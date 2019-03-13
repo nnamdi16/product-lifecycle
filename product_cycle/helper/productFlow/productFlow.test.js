@@ -63,7 +63,7 @@ describe('Check whether removeImpunity cleans all impunities', () => {
 describe('Assigns states to the array of products', () => {
     it('Should assigns states to the array of products without an assigned state', () => {
         let url = 'product_cycle/data/read';
-        let productFlow = new ExecuteOperation();
+        let productFlow = new ProductFlow();
         fs.writeFileSync(url, '///Read Shan Consumer\\\\');
         let output = productFlow.assignState(url);
         let result = {
@@ -75,31 +75,5 @@ describe('Assigns states to the array of products', () => {
 
     });
 
-    // it('Should assigns states to the array of products with an assigned state',() =>{   
-    //     let executeOperation = new ExecuteOperation();
-    //     let output = executeOperation.assignState(['Back','Right','Consumer'],1);
-    //     let result = ['Consumer', '1 Back Right'];
-
-    //     expect(result).toEqual(output);
-    // });
 
 });
-
-// describe('Removes impunities from the array of products', () =>{
-//     it('Should remove impunities from array of products',() =>{   
-//         let executeOperation = new ExecuteOperation();
-//         let checkImpunity = executeOperation.removeImpunity(['///\tBack Right']);
-//         let result = ['Producer', '1 Back Right'];
-
-//         expect(result).toEqual(checkImpunity);
-//     });
-
-//     it('Should assigns states to the array of products with an assigned state',() =>{   
-//         let executeOperation = new ExecuteOperation();
-//         let output = executeOperation.removeImpunity(['//Back Right   Consumer']);
-//         let result = ['Consumer', '1 Back Right'];
-
-//         expect(result).toEqual(output);
-//     });
-
-// });
