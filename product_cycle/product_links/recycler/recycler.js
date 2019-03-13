@@ -1,4 +1,4 @@
-//Import an instance of MoveProduct class and the observer object
+//Import instance of MoveProduct class and the observer object
 const transfer = require('../../helper/moveProduct/moveProduct');
 const observer = require('../../helper/observable/observable').observer;
 
