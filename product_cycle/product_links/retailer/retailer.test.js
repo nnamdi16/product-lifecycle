@@ -1,8 +1,9 @@
-
+//Import instance of MoveProduct class and the observer object
 const fs = require('fs');
 const Retailer = require('./retailer');
 const transfer = require('../../helper/moveProduct/moveProduct');
 
+//Test case to check if recycler class was instantiated.
 describe("Check if the instance of the producer class is created",() => {
     it("Should create an instance of the Producer class",() => {
         const retailer = new Retailer();
