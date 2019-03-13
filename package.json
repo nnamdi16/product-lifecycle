@@ -4,7 +4,8 @@
   "description": "An automated flow process that automates the movement of products from one stage to the other in real time.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "start": "node index.js",
+    "test": "jest --coverage --verbose --watchAll"
   },
   "repository": {
     "type": "git",
