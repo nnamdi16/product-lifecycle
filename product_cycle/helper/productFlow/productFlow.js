@@ -1,5 +1,5 @@
 //Import fs, ProductChain class and observer object.
-const fs = require('fs'); 
+const fs = require('fs');
 const ProductChain = require('../productChain/productChain');
 const observer = require('../observable/observable').observer;
 
@@ -50,11 +50,11 @@ class ExecuteOperation {
 			//Objects that classifies the file into states and product
 			productObj = {
 				state: `${element[2]}`,
-				prop: `${counter} ${element[0]} ${element[1]}` 
+				prop: `${counter} ${element[0]} ${element[1]}`
 			};
-			let productChain = new ProductChain(productObj.state,productObj.prop);
+			let productChain = new ProductChain(productObj.state, productObj.prop);
 			productChain.start();
-		
+
 
 		}
 		observer.check = true; //A stopper that signals the recycler to end the operation.
