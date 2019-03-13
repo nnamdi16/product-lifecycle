@@ -16,6 +16,7 @@ class ProductChainFactory {
         } 
         
     }
+    
 
     getNextProductLink(obj, state) {
         obj = this.objConstructors;
