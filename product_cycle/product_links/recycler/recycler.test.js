@@ -27,13 +27,3 @@ test(`move 'test' to equal 'TEST'`,(done) =>{
         done();
     });
 });
-
-// describe("Move product from the state specified to the next state", () => {
-//     it("Should create an array of object showing the product moved from one state to the other", () => {
-//       const consumer = new Consumer();
-//       let method = consumer.move('Producer','Calista Na');
-      
-//       const result = {};
-//       expect(method).toEqual(`Calista Na Product moved from Producer to Retailer`);
-//     });
-//   });
