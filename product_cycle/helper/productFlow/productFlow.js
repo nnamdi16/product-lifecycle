@@ -1,11 +1,11 @@
 //Import fs, ProductChain class and observer object.
 const fs = require('fs'); 
-const ProductChain = require('./productChain/productChain');
-const observer = require('./observable/observable').observer;
+const ProductChain = require('../productChain/productChain');
+const observer = require('../observable/observable').observer;
 
 let counter = 0;
 //Create an ExecuteOperation class
-class ExecuteOperation {
+class ProductFlow {
 	constructor() {}
 
 	//Create an execute method to read the Input file
@@ -64,7 +64,7 @@ class ExecuteOperation {
 
 
 //Export ExecuteOperation Class
-module.exports = ExecuteOperation;
-const main = require('../main');
+module.exports = ProductFlow;
+const main = require('../../main');
 
 console.log('after calling readFile');
